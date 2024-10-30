@@ -7,6 +7,7 @@ const ProductItem = ({ title, desc, image }) => {
       className={styles.itemWrapper}
       data-aos="flip-left"
       data-aos-once="true"
+      data-aos-offset="300"
     >
       <div className={styles.inner}>
         <h1>{title}</h1>

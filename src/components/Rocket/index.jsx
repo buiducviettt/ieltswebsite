@@ -9,7 +9,7 @@ const RocketAnimation = () => {
 
     // Animation cho tên lửa
     tl.to('.rocket', {
-      duration: 3,
+      duration: 10,
       x: '80vw', // Di chuyển tên lửa ra ngoài bên phải
       ease: 'power2.out',
     });
