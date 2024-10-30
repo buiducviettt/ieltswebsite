@@ -14,13 +14,16 @@
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@tippyjs/react": "^4.2.6",
+    "aos": "^2.3.4",
     "bootstrap": "^5.3.3",
+    "gsap": "^3.12.5",
     "normalize.css": "^8.0.1",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.4",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2",
-    "react-tippy": "^1.4.0"
+    "react-tippy": "^1.4.0",
+    "splitting": "^1.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",

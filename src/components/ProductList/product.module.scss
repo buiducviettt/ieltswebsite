@@ -1,0 +1,10 @@
+.itemWrapper{
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px 20px;
+    width: 100%;
+    .showMoreBtn{
+        background: var(--button-color);
+        width: 100%;
+    }
+}

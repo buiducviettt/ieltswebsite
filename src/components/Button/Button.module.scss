@@ -1,11 +1,15 @@
-.wrapper {
-    background: var(--primary-background);
-    border: none;
-    padding: 0px 20px;
-        min-height: 36px;
-    color: white;
-    border-radius: 4px;
+.button{
+    font-size: 1rem;
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
     align-items: center;
-    justify-content: center;
+    width: 166px;
+    padding: 14px 20px;
+        border-radius: 6px;
+    
+    img{
+        width: 20px;
+    }
 }

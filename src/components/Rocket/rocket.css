@@ -1,0 +1,52 @@
+.rocket-container {
+    position: relative;
+    width: 100%;
+}
+   
+
+.rocket {
+    position: absolute;
+  top: 50%;
+    /* Đặt tên lửa ở dưới cùng */
+    left: -100px;
+    /* Bắt đầu ngoài màn hình */
+    width: 200px;
+    /* Chiều rộng của tên lửa */
+    height: 100px;
+    /* Chiều cao của tên lửa */
+    /* Màu của tên lửa */
+}
+
+.flame {
+    position: absolute;
+    top: 25px;
+    /* Đặt ngọn lửa dưới tên lửa */
+    left: -20px;
+    /* Giữa tên lửa */
+    width: 2rem;
+    /* Chiều rộng ngọn lửa */
+  
+    /* Làm cho ngọn lửa có hình dạng tròn */
+    animation: flame-animation 0.2s infinite;
+    /* Animation cho ngọn lửa */
+}
+
+
+
+@keyframes flame-animation {
+
+    0%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    50% {
+        transform: scaleY(1.5);
+        /* Làm ngọn lửa phình ra */
+    }
+}
+
+.content-section {
+    margin-top: 20px;
+    /* Khoảng cách giữa hiệu ứng và nội dung */
+}

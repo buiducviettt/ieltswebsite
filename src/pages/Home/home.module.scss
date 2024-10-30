@@ -1,0 +1,287 @@
+.BannerWrapper {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    width: 100% !important;
+    
+    background-image: url('../../assets/image/BannerImage.png');
+    padding: 100px 100px; // Đặt padding cho toàn bộ
+
+
+
+    p {
+        font-size: 24px;
+    }
+
+    .bannerButton {
+        background: #1D4ED8;
+
+        a {
+            color: white;
+        }
+    }
+
+    .imgCloud {
+        position: absolute;
+        right: 4px;
+        bottom: -20px;
+        width: 100% !important;
+        animation: float 4s ease-in-out infinite;
+    }
+                .BannerText {
+                    h1[data-splitting="chars"] {
+                        :global(.char) {
+                            display: inline-block;
+                            opacity: 0;
+                            color: var(--button-color); // Màu bắt đầu là vàng
+                            animation: fadeToWhite 0.6s forwards; // Animation từ vàng sang trắng
+                            animation-delay: calc(var(--char-index) * 0.1s); // Độ trễ cho từng ký tự
+                        }
+                    }
+                }
+        
+
+.rightInner {
+    position: relative;
+
+    .ecclipse { 
+        position: absolute;
+        top: 0;
+        z-index: -1;
+    }      
+    }
+}
+.cloud{
+    position: absolute;
+    z-index: -100;
+    top: -30%;
+}
+
+//introduce
+.introduceWrapper {
+  
+   
+    .textIntro {
+        .bannerButton{
+            background: var(--button-color);
+        }
+    }
+
+    .imgWrapper {
+        position: relative;
+        .imgInner{        
+            .ideaRed {
+                display: flex;
+                flex-direction: column;
+                    width: 2rem;
+                    position: absolute;
+                    top: -10%;
+                    right: 45%;
+                    .red1{
+                        transform: translateY(10px);
+                       
+                    }
+                    .red1 ,.red2,.red3{
+                        animation: shine 2s ease-in-out infinite;
+
+                    }
+                   
+                    
+                                       
+                }
+                                 .head {
+                                     width: 5rem;
+                                     position: absolute;
+                                     top: -15%;
+                                     left: 2.5rem;
+                                 }
+        }
+        
+    }
+    .alienWrap{
+        animation: pop2 4s infinite ease-in-out;
+        display: flex ;
+        justify-content: center;
+        position: relative;
+        .alienInner{
+            transform: translateY(-25%);
+           width: 10rem;
+            .light{
+                position: absolute;
+                top: 45%;
+                transform: translate(30px,-25px);   
+                animation: lightAnimation 4s ease-out forwards infinite;
+            }
+        }
+    }
+}
+.skillWrapper{
+    min-height: 100vh;
+    position: relative;
+    background: var(--bg-color);
+    .skillContent{
+        padding: var(--pd);
+        text-align: center;
+    }
+        .imgStar1,
+        .imgStar2,
+        .imgStar3 {
+            position: absolute;
+            animation: pop 3s infinite ease-in-out;
+        }
+        .imgStar2{
+            width: 40px;
+            bottom: 0;
+        }
+        .imgStar3{
+            width: 50px;
+            right: 40px;
+        }
+    .imgStar1 {
+        top: 0;
+            width: 70px;
+           
+    
+        }
+        .uniqueImg{
+            width: 200px;
+            position: absolute;
+            top: -40px;
+            right: 20%;
+            animation: shake 1.5s infinite ease-in;
+        }
+}
+
+
+
+
+// animation
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(-5px);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(5px);
+    }
+}
+
+@keyframes pop2 {
+    0% {
+        transform : scale(1)
+    }
+    50%{
+        transform : scale(1.2)
+    }
+    100% {
+        transform : scale(1)
+    }
+}
+@keyframes lightAnimation {
+    0% {
+     
+        /* Vị trí bắt đầu trên cùng */
+        opacity: 0;
+        /* Đèn chưa hiển thị */
+    }
+
+    50% {
+        opacity: 0.5;
+        /* Tăng độ mờ dần */
+    }
+
+    100% {
+        /* Điểm cuối của đèn ở giữa viewport */
+        opacity: 1;
+        /* Đèn hiển thị rõ ràng */
+    }
+}
+@keyframes fadeToWhite {
+    0% {
+        opacity: .5;
+        color: #FECD0E; // Bắt đầu với màu vàng
+        transform: translateY(40px); // Bắt đầu từ vị trí thấp hơn
+    }
+
+    100% {
+        opacity: 1;
+        color: black; // Kết thúc với màu trắng
+        transform: translateY(0); // Kết thúc ở vị trí ban đầu
+    }
+}
+@keyframes float {
+    0% {
+        transform: translateY(0); // Bắt đầu ở vị trí ban đầu
+    }
+
+    50% {
+        transform: translateY(-20px); // Di chuyển lên 10px
+    }
+
+    100% {
+        transform: translateY(0); // Trở về vị trí ban đầu
+    }
+}
+@keyframes swing {
+    0% {
+            transform: rotate(0deg); // Vị trí ban đầu
+        }
+    
+        25% {
+            transform: rotate(15deg); // Nghiêng sang bên phải
+        }
+    
+        50% {
+            transform: rotate(-15deg); // Nghiêng sang bên trái
+        }
+    
+        75% {
+            transform: rotate(5deg); // Quay lại gần như vị trí ban đầu
+        }
+    
+        100% {
+            transform: rotate(0deg); // Trở về vị trí ban đầu
+        }
+}
+
+@keyframes pop {
+
+    0%,
+    100% {
+        transform: scale(1); // Kích thước ban đầu
+    }
+
+    50% {
+        transform: scale(1.5); // Phóng to tại thời điểm giữa
+    }
+}
+@keyframes shine {
+    0% {
+        transform: scale(1); // Kích thước ban đầu
+        opacity: 0; // Độ mờ ban đầu
+    }
+
+    50% {
+        transform: scale(1.2); // Phóng to
+        opacity: 1; // Độ mờ hoàn toàn
+    }
+
+    100% {
+        transform: scale(1); // Trở về kích thước ban đầu
+    }
+}
+
