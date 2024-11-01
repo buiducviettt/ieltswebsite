@@ -1,6 +1,30 @@
 header{
-    padding: 10px 0;
+    .topHeader{
+        padding: 15px 0;
+        background: #000;
+        a{
+            font-size: 1.8rem;
+        }
+        .topHeaderLeft,
+            .topHeaderRight {
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                color: white !important;
+                
+            }
+            .topHeaderIcon{
+                img{
+                    width: 20px;
+                    height: 20px;
+                }
+                display: flex;
+                align-items: center;
+               gap: 10px;
+            }
+    }
     .navBar {
+        padding: 24px 0;
             width: 100%;
     
             .inner {
@@ -8,27 +32,28 @@ header{
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
-    
                 .navLinks {
                     .navLink {
-                        margin-left:1.5rem;
-                        font-size: 1rem;
-                    }
-    
+                        margin-left:4rem;
+                        font-size: 2rem;  
+                        color:#404040;                
+                    }    
                 }
-    
                 .logo {
                     img {
                         object-fit: contain;
                     }
     
-                }
-    
+                } 
                 .buttonCTA {
                     background: var(--button-color);
-                  
+                  a{
+                    font-size: 1.8rem;
+                    font-weight: bold;
+                  }
                 }
             }
+            
     
         }
 }

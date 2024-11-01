@@ -1,23 +1,117 @@
+/* Regular */
+@font-face {
+  font-family: 'SVN-SofiaPro';
+  src: url('../../assets/font/sofia-pro-webfont/Sofia\ Pro\ Regular\ Az.woff')
+      format('woff'),
+    url('../../assets/font/sofia-pro-webfont/Sofia\ Pro\ Regular\ Az.woff2')
+      format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Bold */
+@font-face {
+  font-family: 'SVN-SofiaPro';
+  src: url('../../assets/font/sofia-pro-webfont/Sofia\ Pro\ Bold\ Az.woff')
+      format('woff'),
+    url('../../assets/font/sofia-pro-webfont/Sofia\ Pro\ Bold\ Az.woff2')
+      format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Italic */
+@font-face {
+  font-family: 'SVN-SofiaPro';
+  src: url('../../assets/font/sofia-pro-webfont/Sofia\ Pro\ Italic\ Az.woff')
+      format('woff'),
+    url('../../assets/font/sofia-pro-webfont/Sofia\ Pro\ Italic\ Az.woff2')
+      format('woff2');
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* Bold Italic */
+@font-face {
+  font-family: 'SVN-SofiaPro';
+  src: url('../../assets/font/sofia-pro-webfont/Sofia\ Pro\ Bold\ Italic\ Az.woff')
+      format('woff'),
+    url('../../assets/font/sofia-pro-webfont/Sofia\ Pro\ Bold\ Italic\ Az.woff2')
+      format('woff2');
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* Black */
+@font-face {
+  font-family: 'SVN-SofiaPro';
+  src: url('../../assets/font/sofia-pro-webfont/Sofia\ Pro\ Black\ Az.woff')
+      format('woff'),
+    url('../../assets/font/sofia-pro-webfont/Sofia\ Pro\ Black\ Az.woff2')
+      format('woff2');
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* Black Italic */
+@font-face {
+  font-family: 'SVN-SofiaPro';
+  src: url('../../assets/font/sofia-pro-webfont/Sofia\ Pro\ Black\ Italic\ Az.woff')
+      format('woff'),
+    url('../../assets/font/sofia-pro-webfont/Sofia\ Pro\ Black\ Italic\ Az.woff2')
+      format('woff2');
+  font-weight: 900;
+  font-style: italic;
+}
+
+/* Medium */
+@font-face {
+  font-family: 'SVN-SofiaPro';
+  src: url('../../assets/font/sofia-pro-webfont/Sofia\ Pro\ Medium\ Az.woff')
+      format('woff'),
+    url('../../assets/font/sofia-pro-webfont/Sofia\ Pro\ Medium\ Az.woff2')
+      format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Medium Italic */
+@font-face {
+  font-family: 'SVN-SofiaPro';
+  src: url('../../assets/font/sofia-pro-webfont/Sofia\ Pro\ Medium\ Italic\ Az.woff')
+      format('woff'),
+    url('../../assets/font/sofia-pro-webfont/Sofia\ Pro\ Medium\ Italic\ Az.woff2')
+      format('woff2');
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* Add more variants as needed */
 img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
 }
-:root{
-    --button-color: #FECD0E;
-    --bg-color: #FFCA4C;
-    --pd: 100px 100px;
+:root {
+  --button-color: #fecd0e;
+  --bg-color: #ffca4c;
+  --pd: 100px 100px;
+  --color-text: #404040;
+  --spacing-small: 8px;
+  --spacing-medium: 16px;
+  --spacing-large: 32px;
 }
 a {
-    text-decoration: none;
-    color: inherit;
+  text-decoration: none;
+  color: inherit;
+  font-size: 1.6rem;
 }
 
 h1,
@@ -26,34 +120,34 @@ h3,
 h4,
 p,
 span {
-    color: black;
+  color: black;
 }
 
-h1,
-h2 {
-    font-family: 'Integral CF', sans-serif;
-    font-weight: bold;
+h1 {
+  font-family: 'SVN-SofiaPro', sans-serif;
+  font-weight: bold;
+}
+
+p {
+  font-family: 'SVN-SofiaPro', sans-serif;
+  font-weight: normal;
 }
 
 h2 {
-    font-size: 4.8rem;
+  font-size: 4.8rem;
 }
 
 li {
-    list-style: none;
+  list-style: none;
 }
 
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 
-html,
 body {
-    font-family: 'Satoshi', sans-serif;
-    font-size: 1.3rem;
-    line-height: 1.5;
-    scroll-behavior: smooth;
-   
+  font-family: 'SVN-SofiaPro', sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  scroll-behavior: smooth;
 }
-
-

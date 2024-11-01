@@ -1,14 +1,56 @@
 import styles from './Header.module.scss';
-import Image from '../../../../assets/image/Images';
 import { Link } from 'react-router-dom';
 import Button from '../../../Button';
+import Images from '../../../../assets/image/Images';
 const Header = () => {
   return (
     <header>
-      <div className={`container ${styles.navBar}`}>
+      <div className={styles.topHeader}>
+        <div className="container">
+          <div className="row">
+            <div className="col col-md-6">
+              <div className={styles.topHeaderLeft}>
+                <Link to="/">
+                  <div className={styles.topHeaderIcon}>
+                    <img src={Images.phone} alt="" />
+                    034 889 5441
+                  </div>
+                </Link>
+                <Link to="/">
+                  <div className={styles.topHeaderIcon}>
+                    <img src={Images.mail} alt="" />
+                    center.ieltstactics@gmail.com
+                  </div>
+                </Link>
+                <Link to="/">
+                  <div className={styles.topHeaderIcon}>
+                    <img src={Images.faq} alt="" />
+                    FAQs
+                  </div>
+                </Link>
+              </div>
+            </div>
+            <div className="col col-md-6">
+              <div className={styles.topHeaderRight}>
+                <Link to="/">Tin tức</Link>
+                <Link to="/">Chính sách</Link>
+                <Link to="/"> Về chúng tôi</Link>
+                <Link to="/"> Liên hệ</Link>
+                <Link to="/">
+                  <div className={styles.topHeaderIcon}>
+                    <img src={Images.account} alt="" />
+                    Đăng nhập
+                  </div>{' '}
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className={`container  ${styles.navBar}`}>
         <div className={styles.inner}>
           <div className={styles.logo}>
-            <img src={Image.logo} alt="" />
+            <img src={Images.logo} alt="" />
           </div>
           <div className={styles.navLinks}>
             <Link to="" className={styles.navLink}>
@@ -28,7 +70,7 @@ const Header = () => {
             </Link>
           </div>
           <div className={styles.buttonWrapper}>
-            <Button className={styles.buttonCTA} title="Thi thử" />
+            <Button className={styles.buttonCTA} title="Tư vấn" />
           </div>
         </div>
       </div>

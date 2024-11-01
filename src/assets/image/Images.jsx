@@ -1,43 +1,23 @@
-import logo from '../image/LOGO.png';
-import arrow from '../image/arrow.svg';
-import BannerImage from '../image/BannerImage.png';
-import Bag from '../image/BannerImage/image 1.svg';
-import ecclipse from '../image/BannerImage/ecclipse.svg';
-import girl from '../image/BannerImage/girl.png';
-import cloud from '../image/BannerImage/cloud2.svg';
-import red1 from '../image/linhtinh/red1.svg';
-import red2 from '../image/linhtinh/red2.svg';
-import red3 from '../image/linhtinh/red3.svg';
-import head from '../image/linhtinh/head.svg';
-import rocket from '../image/linhtinh/rocket.svg';
-import flame from '../image/linhtinh/flame.svg';
-import light from '../image/linhtinh/light.svg';
-import alien from '../image/linhtinh/alien.svg';
-import union from '../image/linhtinh/Union.png';
-import bgbody from '../image/bgbody.svg';
-import star1 from '../image/linhtinh/star.svg';
-import docquyen from '../image/linhtinh/docquyen.png';
-import kh1 from '../image/khoa hoc/kh1.png/';
-const Image = {
-  logo: logo,
-  arrow: arrow,
-  BannerImage: BannerImage,
-  Bag,
-  ecclipse,
-  girl,
-  cloud,
-  red1,
-  red2,
-  red3,
-  head,
-  rocket,
-  flame,
-  light,
-  alien,
-  union,
-  bgbody,
-  star1,
-  docquyen,
-  kh1,
+import logo from '../image/logo/logo.png';
+import phone from '../image/icons/phone.png';
+import faq from '../image/icons/faq.png';
+import mail from '../image/icons/mail.png';
+import account from '../image/icons/account.png';
+import mainimg from '../image/banner/mainimg.png';
+import thumbimg1 from '../image/banner/thumbimg1.png';
+import thumbimg2 from '../image/banner/thumbimg2.png';
+import shape from '../image/banner/shape.png';
+import line from '../image/icons/line.png';
+const Images = {
+  logo,
+  phone,
+  faq,
+  mail,
+  account,
+  mainimg,
+  thumbimg1,
+  thumbimg2,
+  shape,
+  line,
 };
-export default Image;
+export default Images;

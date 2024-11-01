@@ -1,0 +1,101 @@
+// biến
+$pd: 40px;
+$gutter: 24px;
+.homeBanner {
+  padding: $pd 0;
+  background: linear-gradient(
+    90deg,
+    rgba(247, 247, 121, 0.2) 0%,
+    rgba(244, 118, 45, 0.2) 100%
+  );
+  width: 100%;
+  height: auto;
+  .colLeftWrapper {
+    position: relative;
+    .shape {
+      transform: rotate(90deg);
+      position: absolute;
+      left: -10rem;
+
+      img {
+        border-radius: 0px;
+      }
+    }
+    padding: $pd $pd 0 0;
+    .content {
+      .textTitle {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-medium);
+        h1 {
+          line-height: 1.5;
+          font-size: 48px;
+        }
+        .isHighlight {
+          background: #fecd0e;
+          padding: 10px 5px;
+          border-radius: 6px;
+        }
+      }
+    }
+    .ctaBtns {
+      display: flex;
+      .ctaBtn1 {
+        color: white;
+        background: #dc2626;
+      }
+    }
+  }
+  .colRightWrapper {
+    position: relative;
+    img {
+      border-radius: 18px;
+    }
+    .mainImg {
+      background: #ffe16f;
+      border-radius: 18px;
+    }
+    .thumbImgs {
+      margin-left: $gutter;
+      display: flex;
+      flex-direction: column;
+      gap: $gutter;
+      .thumbImg1 {
+        width: 60%;
+      }
+    }
+    .shape {
+      position: absolute;
+      right: 0;
+      img {
+        border-radius: 0px;
+      }
+    }
+  }
+}
+.aboutTeacher {
+  .title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    .yellow {
+      color: #fdd42a;
+      font-size: 15rem;
+      font-weight: bold;
+    }
+    h1 {
+      font-size: 40px;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 35%;
+      right: 25%;
+      transform: translate(-50%, -50%);
+      background-image: url('../../assets/image/icons/line.png');
+      width: 165px; /* Thiết lập chiều rộng */
+      height: 13px; /* Thiết lập chiều cao */
+      background-size: cover; /* Hoặc bạn có thể dùng background-size: contain; */
+    }
+  }
+}
