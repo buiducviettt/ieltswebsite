@@ -8,6 +8,7 @@ import thumbimg1 from '../image/banner/thumbimg1.png';
 import thumbimg2 from '../image/banner/thumbimg2.png';
 import shape from '../image/banner/shape.png';
 import line from '../image/icons/line.png';
+import teacher from '../image/Images/teacher.png'
 const Images = {
   logo,
   phone,
@@ -19,5 +20,6 @@ const Images = {
   thumbimg2,
   shape,
   line,
+  teacher
 };
 export default Images;

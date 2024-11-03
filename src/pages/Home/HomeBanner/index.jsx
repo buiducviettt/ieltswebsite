@@ -3,7 +3,7 @@ import styles from '../../Home/home.module.scss';
 import Images from '../../../assets/image/Images';
 const HomeBanner = () => {
   return (
-    <div className={styles.homeBanner}>
+    <div className={`${styles.homeBanner}`}>
       <div className="container" style={{ padding: '50px  0' }}>
         <div className="row">
           <div className="col-12 col-md-6">

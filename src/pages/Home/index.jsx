@@ -1,5 +1,6 @@
 import DefaultLayout from '../../components/Layout/Default Layout';
 import HomeBanner from './HomeBanner';
+import TeacherList from '../../components/TeacherList';
 import styles from '../Home/home.module.scss';
 // import Images from '../../assets/image/Images';
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
               <span style={{ color: '#2563EB' }}> 8.0 - 8.5 IELTS</span>
             </h1>
           </div>
+          <TeacherList/>
         </div>
       </div>
     </DefaultLayout>

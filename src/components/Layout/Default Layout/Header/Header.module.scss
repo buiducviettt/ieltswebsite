@@ -1,5 +1,17 @@
 header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: #fff;
+    z-index: 99999999999999;
+    
+    &.scroll{
+        .navBar, .topHeader{
+            padding: 5px 0; 
+        }
+    }
     .topHeader{
+        transition: padding 0.5s ease; 
         padding: 15px 0;
         background: #000;
         a{
@@ -24,6 +36,7 @@ header{
             }
     }
     .navBar {
+        transition: padding 0.5s ease; 
         padding: 24px 0;
             width: 100%;
     

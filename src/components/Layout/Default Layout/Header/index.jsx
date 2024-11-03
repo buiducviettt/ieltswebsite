@@ -2,9 +2,22 @@ import styles from './Header.module.scss';
 import { Link } from 'react-router-dom';
 import Button from '../../../Button';
 import Images from '../../../../assets/image/Images';
+import { useEffect, useState } from 'react';
 const Header = () => {
+  const [isScroll, setIsScroll] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScroll(true);
+      } else {
+        setIsScroll(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
   return (
-    <header>
+    <header  className={`${styles.header} ${isScroll ? styles.scroll : ''}`}>
       <div className={styles.topHeader}>
         <div className="container">
           <div className="row">
