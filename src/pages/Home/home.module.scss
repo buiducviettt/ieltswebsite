@@ -1,6 +1,9 @@
 // biến
 $pd: 40px;
 $gutter: 24px;
+h1 {
+  font-size: 40px;
+}
 .homeBanner {
   margin-top: 160px;
   padding: $pd 0;
@@ -84,9 +87,7 @@ $gutter: 24px;
       font-size: 15rem;
       font-weight: bold;
     }
-    h1 {
-      font-size: 40px;
-    }
+
     &::after {
       content: '';
       position: absolute;
@@ -98,5 +99,73 @@ $gutter: 24px;
       height: 13px; /* Thiết lập chiều cao */
       background-size: cover; /* Hoặc bạn có thể dùng background-size: contain; */
     }
+  }
+}
+.roadMap {
+  position: relative;
+  .title {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      left: 30%;
+      transform: translate(-50%, -50%);
+      background-image: url('../../assets/image/icons/blueline.png');
+      width: 165px; /* Thiết lập chiều rộng */
+      height: 13px; /* Thiết lập chiều cao */
+      background-size: cover; /* Hoặc bạn có thể dùng background-size: contain; */
+    }
+  }
+  .humanImg {
+    margin-top: 100px;
+    z-index: 2;
+    width: 200px;
+    position: relative;
+    .arm {
+      z-index: -1;
+      position: absolute;
+      top: -4%;
+      right: -19%;
+      animation: shake 2s ease-in-out infinite;
+    }
+  }
+  .certify {
+    position: absolute;
+    z-index: -1;
+    top: 20px;
+    left: 20%;
+  }
+}
+.roadMapImageWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+//animation
+
+@keyframes shake {
+  0% {
+    transform: rotate(2deg);
+  }
+  20% {
+    transform: rotate(3deg);
+  }
+  40% {
+    transform: rotate(4deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+  60% {
+    transform: rotate(6deg);
+  }
+  70% {
+    transform: rotate(7deg);
+  }
+
+  100% {
+    transform: rotate(2deg);
   }
 }

@@ -1,22 +1,57 @@
 .teacherItem {
-    width: 248px;
-    height: auto;
+  width: 248px;
+  height: auto;
 
-    .teacherImg {
-        border-radius: 12px;
+  .teacherImg {
+    border-radius: 12px;
 
-        img {
-            border-radius: 12px;
-        }
+    img {
+      border-radius: 12px;
     }
+  }
 
-    .content {
-        display: flex;
-        flex-direction: column;
-        gap: var(--spacing-medium);
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-medium);
 
-        .title {
-            font-size: 1.8rem;
-        }
+    .title {
+      font-size: 1.8rem;
     }
+  }
+}
+.teacherListWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+}
+
+// Đặt CSS của Swiper ngoài các lớp khác để đảm bảo áp dụng đúng
+:global {
+  .swiper-button-prev,
+  .swiper-button-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color: #fecd0e;
+    border-radius: 50%;
+    color: #fff;
+    padding: 10px;
+    width: 48px !important;
+    height: 48px !important;
+    &::after {
+      color: black;
+      font-size: 1.5rem !important;
+      font-weight: bold;
+    }
+  }
+
+  .swiper-button-prev {
+    left: -40px; // Điều chỉnh khoảng cách nếu cần
+  }
+
+  .swiper-button-next {
+    right: -40px; // Điều chỉnh khoảng cách nếu cần
+  }
 }

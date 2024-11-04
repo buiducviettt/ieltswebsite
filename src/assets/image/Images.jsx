@@ -8,7 +8,12 @@ import thumbimg1 from '../image/banner/thumbimg1.png';
 import thumbimg2 from '../image/banner/thumbimg2.png';
 import shape from '../image/banner/shape.png';
 import line from '../image/icons/line.png';
-import teacher from '../image/Images/teacher.png'
+import human from '../image/icons/human.png';
+import arm from '../image/icons/arm.png';
+import certify from '../image/icons/certify.png';
+import line2 from '../image/icons/blueline.png';
+import teacher from '../image/Images/teacher.png';
+import roadmap from '../image/Images/roadmap.png';
 const Images = {
   logo,
   phone,
@@ -20,6 +25,11 @@ const Images = {
   thumbimg2,
   shape,
   line,
-  teacher
+  teacher,
+  line2,
+  human,
+  arm,
+  certify,
+  roadmap,
 };
 export default Images;
