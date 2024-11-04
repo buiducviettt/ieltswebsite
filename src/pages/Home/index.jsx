@@ -11,13 +11,14 @@ const Home = () => {
       <div className={`${styles.aboutTeacher} container mt-5`}>
         <div className={styles.inner}>
           <div className={styles.title}>
-            <CountUp end={100} duration={4} suffix="%">
-              {({ countUpRef }) => (
-                <span ref={countUpRef} className={styles.yellow}>
-                  0
-                </span>
-              )}
-            </CountUp>
+            <span>
+              <CountUp
+                end={100}
+                duration={4}
+                suffix="%"
+                className={styles.yellow}
+              />
+            </span>
             <h1>
               GIÁO VIÊN ĐẠT{' '}
               <span style={{ color: '#2563EB' }}> 8.0 - 8.5 IELTS</span>
