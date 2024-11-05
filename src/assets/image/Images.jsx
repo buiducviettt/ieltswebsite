@@ -14,6 +14,8 @@ import certify from '../image/icons/certify.png';
 import line2 from '../image/icons/blueline.png';
 import teacher from '../image/Images/teacher.png';
 import roadmap from '../image/Images/roadmap.png';
+import phoneImg from '../image/Images/contact.png';
+import blackline from '../image/icons/blackline.png';
 const Images = {
   logo,
   phone,
@@ -31,5 +33,7 @@ const Images = {
   arm,
   certify,
   roadmap,
+  phoneImg,
+  blackline,
 };
 export default Images;

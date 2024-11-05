@@ -43,18 +43,37 @@ const Home = () => {
               </div>
             </div>
             <div className={styles.certify}>
-              <div>
-                <iframe
-                  src="https://giphy.com/embed/n9Lxl5GiZM9GhwGnGE"
-                  width="100%"
-                  height="100%"
-                  className="giphy-embed"
-                  allowFullScreen
-                ></iframe>
-              </div>
+              <img src={Images.certify} alt="" />
             </div>
             <div className={styles.roadMapImg}>
               <img src={Images.roadmap} alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className={`${styles.contact} mt-5`}>
+        <div className={`${styles.inner} container`}>
+          <div className="row">
+            <div className="col-12 col-md-6">
+              <div className={styles.colImg}>
+                <img src={Images.phoneImg} alt="" />
+              </div>
+            </div>
+            <div className="col-12 col-md-6">
+              <div className={styles.contentWrapper}>
+                <div className={styles.inner}>
+                  <div className={styles.title}>
+                    <h1>
+                      TƯ VẤN LỘ TRÌNH NGAY TẠI <br></br>
+                      <span style={{ color: '#2563EB' }}> IELTS TATICS</span>
+                    </h1>
+                  </div>
+                  <p>
+                    Các khoá học của Ielts Tatics được biên soạn và trình bày
+                    một cách khoa học nhất
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

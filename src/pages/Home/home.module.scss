@@ -134,13 +134,41 @@ h1 {
   .certify {
     position: absolute;
     z-index: -1;
-    top: 20px;
-    left: 20%;
+    top: 40px;
+    left: 25%;
   }
 }
 .roadMapImageWrapper {
   display: flex;
   justify-content: space-between;
+}
+.contact {
+  background: var(--bg-color);
+  .inner {
+    padding: calc(#{$pd} * 2) 0 calc(#{$pd} * 2) 0;
+    .colImg {
+      width: 45rem;
+    }
+  }
+  .contentWrapper {
+    .inner {
+      .title {
+        position: relative;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -10%;
+          left: 25%;
+          transform: translate(-50%, -50%);
+          background-image: url('../../assets/image/icons/blackline.png');
+          width: 165px; /* Thiết lập chiều rộng */
+          height: 13px; /* Thiết lập chiều cao */
+          background-size: cover; /* Hoặc bạn có thể dùng background-size: contain; */
+        }
+      }
+    }
+  }
 }
 
 //animation
