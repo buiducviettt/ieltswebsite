@@ -1,54 +1,60 @@
 import ProductItem from './Product';
-import Image from '../../assets/image/Images';
+import Images from '../../assets/image/Images';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import styles from '../ProductList/product.module.scss';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import { Navigation } from 'swiper/modules';
 function ProductList() {
   return (
-    <div>
-      <div className="row">
-        <div className="col-6 col-md-4">
+    <div className={`${styles.productListWrapper} mt-5`}>
+      <Swiper
+        modules={[Navigation]}
+        slidesPerView={4}
+        navigation
+        pagination={{ clickable: true }}
+      >
+        <SwiperSlide>
           <ProductItem
-            title="Listening"
+            shortdesc="102 video - 40 giờ học"
+            name="IELTS Super Intensive"
             desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
-            image={Image.kh1}
+            image={Images.teacher}
           />
-        </div>
-        <div className="col-6 col-md-4">
+        </SwiperSlide>
+        <SwiperSlide>
           <ProductItem
-            title="Listening"
+            shortdesc="102 video - 40 giờ học"
+            name="Listening"
             desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
-            image={Image.kh1}
+            image={Images.teacher}
           />
-        </div>
-        <div className="col-6 col-md-4">
+        </SwiperSlide>
+        <SwiperSlide>
           <ProductItem
-            title="Listening"
+            shortdesc="102 video - 40 giờ học"
+            name="IELTS Super Intensive"
             desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
-            image={Image.kh1}
+            image={Images.teacher}
           />
-        </div>
-      </div>
-      <div className="row mt-4">
-        <div className="col-6 col-md-4">
+        </SwiperSlide>
+        <SwiperSlide>
           <ProductItem
-            title="Listening"
+            shortdesc="102 video - 40 giờ học"
+            name="IELTS Super Intensive"
             desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
-            image={Image.kh1}
+            image={Images.teacher}
           />
-        </div>
-        <div className="col-6 col-md-4">
+        </SwiperSlide>
+        <SwiperSlide>
           <ProductItem
-            title="Listening"
+            shortdesc="102 video - 40 giờ học"
+            name="Listening"
             desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
-            image={Image.kh1}
+            image={Images.teacher}
           />
-        </div>
-        <div className="col-6 col-md-4">
-          <ProductItem
-            title="Listening"
-            desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
-            image={Image.kh1}
-          />
-        </div>
-      </div>
+        </SwiperSlide>
+      </Swiper>
     </div>
   );
 }

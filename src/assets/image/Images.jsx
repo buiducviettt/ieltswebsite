@@ -16,6 +16,7 @@ import teacher from '../image/Images/teacher.png';
 import roadmap from '../image/Images/roadmap.png';
 import phoneImg from '../image/Images/contact.png';
 import blackline from '../image/icons/blackline.png';
+import unique from '../image/icons/unique.png';
 const Images = {
   logo,
   phone,
@@ -35,5 +36,6 @@ const Images = {
   roadmap,
   phoneImg,
   blackline,
+  unique,
 };
 export default Images;

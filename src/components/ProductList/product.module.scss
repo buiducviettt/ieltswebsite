@@ -1,10 +1,35 @@
-.itemWrapper{
-    background: #fff;
-    border-radius: 16px;
-    padding: 20px 20px;
+.itemWrapper {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px 20px;
+  width: 100%;
+  .showMoreBtn {
+    background: var(--button-color);
     width: 100%;
-    .showMoreBtn{
-        background: var(--button-color);
-        width: 100%;
+  }
+}
+.courseItem {
+  width: 248px;
+  height: auto;
+  img {
+    border-radius: 12px;
+  }
+  .shortdesc {
+    color: #7c0fd2;
+    font-weight: 600 !important;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  .btn {
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 10000px;
+    padding: 10px 20px;
+    transition: background 0.3s ease-in;
+    cursor: pointer;
+    &:hover {
+      background: var(--bg-color);
     }
+  }
 }

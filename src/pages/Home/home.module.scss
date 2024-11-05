@@ -143,6 +143,9 @@ h1 {
   justify-content: space-between;
 }
 .contact {
+  .colImg {
+    animation: pop 3s ease-in-out infinite;
+  }
   background: var(--bg-color);
   .inner {
     padding: calc(#{$pd} * 2) 0 calc(#{$pd} * 2) 0;
@@ -152,6 +155,14 @@ h1 {
   }
   .contentWrapper {
     .inner {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-medium);
+      .ctaBtn {
+        background: #dc2626;
+        color: white;
+        width: 18.9rem;
+      }
       .title {
         position: relative;
 
@@ -170,8 +181,52 @@ h1 {
     }
   }
 }
+.courseWrapper {
+  .title {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      left: 35%;
+      transform: translate(-50%, -50%);
+      background-image: url('../../assets/image/icons/line.png');
+      width: 165px; /* Thiết lập chiều rộng */
+      height: 13px; /* Thiết lập chiều cao */
+      background-size: cover; /* Hoặc bạn có thể dùng background-size: contain; */
+    }
+  }
+}
+.courseWrapper {
+  .title {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .showAllBtn {
+    background: var(--bg-color);
+  }
+  .uniqueImg {
+    position: absolute;
+    right: 52%;
+    top: -20px;
+  }
+}
 
 //animation
+@keyframes pop {
+  0% {
+    transform: translateY(10px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}
 
 @keyframes shake {
   0% {
