@@ -92,6 +92,9 @@ img {
   height: auto;
   object-fit: cover;
 }
+.row {
+  --bs-gutter-x: 32px !important;
+}
 
 * {
   box-sizing: border-box;
@@ -107,6 +110,9 @@ img {
   --spacing-small: 8px;
   --spacing-medium: 16px;
   --spacing-large: 32px;
+}
+section {
+  margin-top: 100px;
 }
 a {
   text-decoration: none;

@@ -1,7 +1,11 @@
 .teacherItem {
-  width: 248px;
-  height: auto;
-
+  border: 1px solid transparent;
+  transition: 0.3s all ease;
+  &:hover {
+    border: 1px solid var(--bg-color);
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Thêm box-shadow */
+  }
   .teacherImg {
     border-radius: 12px;
 

@@ -1,59 +1,51 @@
 import ProductItem from './Product';
-import Images from '../../assets/image/Images';
+// import Images from '../../assets/image/Images';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import styles from '../ProductList/product.module.scss';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
-function ProductList() {
+import { useEffect, useState } from 'react';
+
+function ProductList({ isHome }) {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const response = await fetch(
+          'https://cors-anywhere.herokuapp.com/https://courses.edx.org/api/courses/v1/courses/',
+        );
+        const data = await response.json();
+        const allProduct = data.results || data;
+        setProducts(isHome ? allProduct.slice(0, 5) : allProduct);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchProduct();
+  }, [isHome]);
   return (
     <div className={`${styles.productListWrapper} mt-5`}>
       <Swiper
         modules={[Navigation]}
+        spaceBetween={40}
         slidesPerView={4}
         navigation
         pagination={{ clickable: true }}
       >
-        <SwiperSlide>
-          <ProductItem
-            shortdesc="102 video - 40 giờ học"
-            name="IELTS Super Intensive"
-            desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
-            image={Images.teacher}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductItem
-            shortdesc="102 video - 40 giờ học"
-            name="Listening"
-            desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
-            image={Images.teacher}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductItem
-            shortdesc="102 video - 40 giờ học"
-            name="IELTS Super Intensive"
-            desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
-            image={Images.teacher}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductItem
-            shortdesc="102 video - 40 giờ học"
-            name="IELTS Super Intensive"
-            desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
-            image={Images.teacher}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProductItem
-            shortdesc="102 video - 40 giờ học"
-            name="Listening"
-            desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
-            image={Images.teacher}
-          />
-        </SwiperSlide>
+        {products.map((product) => (
+          <SwiperSlide key={product.course_id}>
+            <ProductItem
+              image={`https://courses.edx.org${product.media.course_image.uri}`}
+              name={product.name}
+              enrollEnd={
+                product.enrollment_end === null
+                  ? ''
+                  : ` Hết hạn vào : ${product.enrollment_end} `
+              }
+            />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

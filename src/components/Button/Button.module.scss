@@ -1,7 +1,10 @@
-.button{
-    font-size: 1rem;
-    width: 166px;
-    text-align: center;
-    padding: 14px 20px;
-        border-radius: 73px;
+.button {
+  font-size: 1rem;
+  width: 166px;
+  text-align: center;
+  padding: 14px 20px;
+  border-radius: 73px;
+  a {
+    font-weight: 600 !important;
+  }
 }

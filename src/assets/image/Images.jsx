@@ -14,9 +14,11 @@ import certify from '../image/icons/certify.png';
 import line2 from '../image/icons/blueline.png';
 import teacher from '../image/Images/teacher.png';
 import roadmap from '../image/Images/roadmap.png';
+import document from '../image/Images/document.png';
 import phoneImg from '../image/Images/contact.png';
 import blackline from '../image/icons/blackline.png';
 import unique from '../image/icons/unique.png';
+import iconDoc from '../image/icons/iconDoc.png';
 const Images = {
   logo,
   phone,
@@ -29,6 +31,7 @@ const Images = {
   shape,
   line,
   teacher,
+  document,
   line2,
   human,
   arm,
@@ -37,5 +40,6 @@ const Images = {
   phoneImg,
   blackline,
   unique,
+  iconDoc,
 };
 export default Images;

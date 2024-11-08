@@ -161,7 +161,12 @@ h1 {
       .ctaBtn {
         background: #dc2626;
         color: white;
-        width: 18.9rem;
+        font-size: 2rem;
+        white-space: nowrap;
+        padding: 0.5rem 1rem; /* thêm padding để tạo khoảng cách */
+        text-align: center; /* căn giữa chữ */
+        display: inline-block; /* giúp phần tử co dãn theo nội dung */
+        border-radius: 73px; /* nếu cần bo góc */
       }
       .title {
         position: relative;
@@ -183,6 +188,9 @@ h1 {
 }
 .courseWrapper {
   .title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     position: relative;
 
     &::after {
@@ -197,14 +205,6 @@ h1 {
       background-size: cover; /* Hoặc bạn có thể dùng background-size: contain; */
     }
   }
-}
-.courseWrapper {
-  .title {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
   .showAllBtn {
     background: var(--bg-color);
   }
@@ -212,6 +212,37 @@ h1 {
     position: absolute;
     right: 52%;
     top: -20px;
+  }
+}
+.documentsWrapper {
+  .title {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .uniqueImg {
+    position: absolute;
+    right: 52%;
+    top: -20px;
+  }
+}
+.reasonWrapper {
+  background: #000;
+  .title {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      left: 30%;
+      transform: translate(-50%, -50%);
+      background-image: url('../../assets/image/icons/blueline.png');
+      width: 165px; /* Thiết lập chiều rộng */
+      height: 13px; /* Thiết lập chiều cao */
+      background-size: cover; /* Hoặc bạn có thể dùng background-size: contain; */
+    }
   }
 }
 

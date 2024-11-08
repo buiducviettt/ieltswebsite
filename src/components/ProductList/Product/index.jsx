@@ -2,7 +2,7 @@
 import Button from '../../Button';
 import styles from '../../ProductList/product.module.scss';
 
-const ProductItem = ({ image, name, desc, shortdesc }) => {
+const ProductItem = ({ image, name, desc, enrollEnd }) => {
   return (
     <div className={styles.courseItem}>
       <div className={styles.courseImg}>
@@ -10,7 +10,7 @@ const ProductItem = ({ image, name, desc, shortdesc }) => {
       </div>
       <div className={`${styles.content} mt-5`}>
         <h1 className={styles.title}>{name}</h1>
-        <p className={styles.shortdesc}>{shortdesc}</p>
+        <p className={styles.shortdesc}>{enrollEnd}</p>
         <p>{desc}</p>
         <Button title="Đăng ký học" className={styles.btn} />
       </div>

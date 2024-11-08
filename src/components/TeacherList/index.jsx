@@ -11,6 +11,7 @@ const TeacherList = () => {
       <Swiper
         modules={[Navigation]}
         slidesPerView={4}
+        spaceBetween={40}
         navigation
         pagination={{ clickable: true }}
       >

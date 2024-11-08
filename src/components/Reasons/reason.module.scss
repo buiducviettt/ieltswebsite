@@ -1,0 +1,23 @@
+.listWrapper {
+  .itemWrapper {
+    background: #fff;
+    border-radius: 16px !important;
+    padding: 40px;
+    .inner {
+      p,
+      h3 {
+        text-align: center;
+      }
+      img {
+        width: 32px;
+        height: 32px;
+      }
+
+      gap: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+  }
+}

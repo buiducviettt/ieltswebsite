@@ -53,16 +53,28 @@ const HomeBanner = () => {
             <div className={styles.colRightWrapper}>
               <div className={`row ${styles.row}`}>
                 <div className="col col-md-6">
-                  <div className={styles.mainImg}>
+                  <div
+                    className={styles.mainImg}
+                    data-aos="flip-left"
+                    data-aos-duration="1000"
+                  >
                     <img src={Images.mainimg} alt="" />
                   </div>
                 </div>
                 <div className="col col-md-6">
                   <div className={styles.thumbImgs}>
-                    <div className={styles.thumbImg1}>
+                    <div
+                      className={styles.thumbImg1}
+                      data-aos="flip-right"
+                      data-aos-duration="3000"
+                    >
                       <img src={Images.thumbimg1} alt="" />
                     </div>
-                    <div className={styles.thumbImg2}>
+                    <div
+                      className={styles.thumbImg2}
+                      data-aos="flip-left"
+                      data-aos-duration="4000"
+                    >
                       <img src={Images.thumbimg2} alt="" />
                     </div>
                     <div className={styles.shape}>
