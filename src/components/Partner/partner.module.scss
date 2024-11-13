@@ -1,0 +1,10 @@
+.logoPartnerWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoPartner {
+  max-width: 150px; // Giới hạn chiều rộng của mỗi logo
+  max-height: 80px; // Giới hạn chiều cao của mỗi logo
+}

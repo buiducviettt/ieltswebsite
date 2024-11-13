@@ -19,6 +19,10 @@ import phoneImg from '../image/Images/contact.png';
 import blackline from '../image/icons/blackline.png';
 import unique from '../image/icons/unique.png';
 import iconDoc from '../image/icons/iconDoc.png';
+import Ant from '../image/Images/Ant Tactics 2.png';
+import logo1 from '../image/logo/logo1.png';
+import logo2 from '../image/logo/logo2.png';
+
 const Images = {
   logo,
   phone,
@@ -34,6 +38,7 @@ const Images = {
   document,
   line2,
   human,
+  Ant,
   arm,
   certify,
   roadmap,
@@ -41,5 +46,7 @@ const Images = {
   blackline,
   unique,
   iconDoc,
+  logo1,
+  logo2,
 };
 export default Images;

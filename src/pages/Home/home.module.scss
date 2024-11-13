@@ -1,6 +1,7 @@
 // biến
 $pd: 40px;
 $gutter: 24px;
+$pd-inner: calc(#{$pd} * 2) 0 calc(#{$pd} * 2) 0;
 h1 {
   font-size: 40px;
 }
@@ -229,19 +230,22 @@ h1 {
 }
 .reasonWrapper {
   background: #000;
-  .title {
-    position: relative;
+  .inner {
+    padding: $pd-inner;
+    .title {
+      position: relative;
 
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -20%;
-      left: 30%;
-      transform: translate(-50%, -50%);
-      background-image: url('../../assets/image/icons/blueline.png');
-      width: 165px; /* Thiết lập chiều rộng */
-      height: 13px; /* Thiết lập chiều cao */
-      background-size: cover; /* Hoặc bạn có thể dùng background-size: contain; */
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -20%;
+        right: 20%;
+        transform: translate(-50%, -50%);
+        background-image: url('../../assets/image/icons/blueline.png');
+        width: 165px; /* Thiết lập chiều rộng */
+        height: 13px; /* Thiết lập chiều cao */
+        background-size: cover; /* Hoặc bạn có thể dùng background-size: contain; */
+      }
     }
   }
 }

@@ -8,10 +8,14 @@ import CountUp from 'react-countup';
 import Button from '../../components/Button';
 import Document from '../../components/Document';
 import { Link } from 'react-router-dom';
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import ReasonList from '../../components/Reasons';
+import StudentSec from './StudentSec';
+import ContactForm from '../../components/contactform';
+import Partner from '../../components/Partner';
+import { Typewriter } from 'react-simple-typewriter';
 const Home = () => {
   useEffect(() => {
     AOS.init({
@@ -148,14 +152,33 @@ const Home = () => {
         <div className={` ${styles.reasonWrapper}`}>
           <div className={`${styles.inner} container`}>
             <div className={styles.title}>
-              <h1 style={{ color: 'white' }}>
+              <h1 style={{ color: 'white', textAlign: 'center' }}>
                 ĐẶC QUYỀN CHỈ CÓ TẠI
-                <span style={{ color: '#FECD0E' }}> IELTS TATICS</span>
+                <span style={{ color: '#FECD0E' }}>
+                  <Typewriter
+                    words={[' IELTS TACTICS']}
+                    loop={false}
+                    typeSpeed={50}
+                    deleteSpeed={30}
+                    cursor
+                    cursorStyle="|"
+                  />
+                </span>
               </h1>
             </div>
             <ReasonList />
           </div>
         </div>
+      </section>
+      <section>
+        <StudentSec />
+      </section>
+      <section>
+        <ContactForm />
+      </section>
+      <section>
+        {' '}
+        <Partner />
       </section>
     </DefaultLayout>
   );

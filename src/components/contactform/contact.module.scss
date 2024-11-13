@@ -1,0 +1,44 @@
+$pd: 40px;
+$pd-inner: calc(#{$pd} * 2) 0 calc(#{$pd} * 2) 0;
+.content {
+  .title {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-medium);
+  }
+  .blueText {
+    color: #2563eb;
+  }
+}
+.contactForm {
+  .btn {
+    color: white;
+    background: #000;
+    margin-top: $pd;
+  }
+  .inner {
+    .formGroup {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    select {
+      font-size: 2rem;
+    }
+    input {
+      font-size: 1.8rem;
+    }
+    label {
+      margin-top: 20px;
+      font-size: 20px;
+    }
+  }
+  .inputPhone {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.contactFormWrapper {
+  background: var(--bg-color);
+  padding: $pd-inner;
+}

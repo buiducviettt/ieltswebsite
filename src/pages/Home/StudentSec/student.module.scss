@@ -1,0 +1,68 @@
+.mansory {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  img {
+    border-radius: 16px;
+  }
+}
+/* Sử dụng nth-child để chỉnh sửa các hình ảnh */
+.mansory img:nth-child(1) {
+  grid-column: span 2; /* Tạo ảnh đầu tiên chiếm 2 cột */
+  grid-row: span 2; /* Tạo ảnh đầu tiên chiếm 2 hàng */
+}
+
+.mansory img:nth-child(2) {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.mansory img:nth-child(3) {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.mansory img:nth-child(4) {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.mansory img:nth-child(5) {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.mansory img:nth-child(6) {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.mansory img:nth-child(7) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.mansory img:nth-child(8) {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.mansory img:nth-child(9) {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.inner {
+  .content {
+    p {
+      font-size: 24px;
+    }
+    display: flex;
+    gap: var(--spacing-large);
+    flex-direction: column;
+  }
+  margin-top: 100px;
+  .number {
+    color: #dc2626;
+  }
+}

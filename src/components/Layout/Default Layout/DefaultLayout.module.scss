@@ -1,0 +1,21 @@
+.footer {
+  border: 1px solid gray;
+  .logoWrapper {
+    width: 20%;
+  }
+  ul {
+    padding-left: 0 !important;
+    li {
+      margin-top: 20px;
+    }
+  }
+  .footerLink {
+    display: flex;
+    gap: 10px;
+  }
+  .socialIcons {
+    display: flex;
+    font-size: 2rem;
+    gap: 20px;
+  }
+}

@@ -107,9 +107,12 @@ img {
   --bg-color: #ffca4c;
   --pd: 100px 100px;
   --color-text: #404040;
-  --spacing-small: 8px;
-  --spacing-medium: 16px;
-  --spacing-large: 32px;
+  --spacing-small: 16px;
+  --spacing-medium: 32px;
+  --spacing-large: 48px;
+  --font-size-base: clamp(1rem, calc(-1rem+5vw), 1.6rem);
+  --font-size-heading: clamp(4rem, calc(-1rem + 5vw), 4rem); /* Đảm bảo 4rem */
+  --font-size-heading2: clamp(3rem, calc(-1rem + 3vw), 3rem); /* Đảm bảo 3rem */
 }
 section {
   margin-top: 100px;
@@ -119,19 +122,10 @@ a {
   color: inherit;
   font-size: 1.6rem;
 }
-
-h1,
-h2,
-h3,
-h4,
-p,
-span {
-  color: black;
-}
-
 h1 {
   font-family: 'SVN-SofiaPro', sans-serif;
   font-weight: bold;
+  font-size: var(--font-size-heading);
 }
 
 p {
@@ -140,7 +134,7 @@ p {
 }
 
 h2 {
-  font-size: 4.8rem;
+  font-size: var(--font-size-heading2);
 }
 
 li {
@@ -153,7 +147,10 @@ html {
 
 body {
   font-family: 'SVN-SofiaPro', sans-serif;
-  font-size: 1.6rem;
   line-height: 1.5;
+  font-size: 1.6rem;
   scroll-behavior: smooth;
+}
+.react-select__input-container {
+  width: 100px;
 }
