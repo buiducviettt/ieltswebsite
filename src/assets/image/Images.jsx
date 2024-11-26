@@ -32,7 +32,11 @@ import method from '../image/aboutus/method.png';
 import quote from '../image/aboutus/quote.png';
 import student from '../image/aboutus/student.png';
 import vision from '../image/aboutus/vision.jpg';
+import cloud from '../image/Images/scoretesti.svg';
+import testimonial from '../image/Images/testimonials.png';
 const Images = {
+  testimonial,
+  cloud,
   vision,
   student,
   teacher1,

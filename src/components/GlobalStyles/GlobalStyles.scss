@@ -114,6 +114,7 @@ img {
   --size-hd: 160px;
   --section-gap: 100px;
 }
+
 section {
   margin-top: var(--section-gap);
 }
@@ -153,4 +154,29 @@ body {
 }
 .react-select__input-container {
   width: 100px;
+}
+.product_page_swiper {
+  .swiper-slide {
+    transition: all 0.3s ease; // Hiệu ứng mượt mà khi thay đổi trạng thái
+
+    .description {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease;
+    }
+  }
+
+  .swiper-slide-active {
+    z-index: 10;
+
+    .description {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .swiper-slide:not(.swiper-slide-active) {
+    transform: scale(0.9); // Thu nhỏ các slide không active
+    z-index: 1;
+  }
 }

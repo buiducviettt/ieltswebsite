@@ -7,7 +7,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPersonChalkboard } from '@fortawesome/free-solid-svg-icons';
 import Button from '../../components/Button';
 import ReasonList from '../../components/Reasons';
-
+import Testimonials from '../../components/Testimonials';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import { Navigation } from 'swiper/modules';
+import Images from '../../assets/image/Images';
+import FeedbackItem from '../../components/Feedback Item';
+import 'swiper/css/navigation';
+import ContactForm from '../../components/contactform';
 const ProductDetail = () => {
   const { productId } = useParams();
   const [product, setProducts] = useState({});
@@ -70,7 +77,7 @@ const ProductDetail = () => {
                 </div>
               </div>
             </div>
-            <div className={`col col-md-4  ${styles.productInfoWrapper} `}>
+            <div className={`col col-md-4  ${styles.productInfoWrapper}  `}>
               <div className={styles.wrapper}>
                 <div className={styles.inner}>
                   <h1 style={{ color: '#DC2626' }}>{formattedPrice}đ</h1>
@@ -218,7 +225,131 @@ const ProductDetail = () => {
             </div>
           </div>
         </section>
-        <section className={styles.tesimonials}></section>
+        <section className={`${styles.tesimonials} product_page_swiper`}>
+          <h1 className={styles.heading}>BẢNG VÀNG THÀNH TÍCH</h1>
+          <Swiper
+            loop={true}
+            navigation
+            modules={[Navigation]}
+            pagination={{ clickable: true }}
+            slidesPerView={5}
+            spaceBetween={40} // Khoảng cách giữa các slide
+            centeredSlides={true}
+          >
+            <SwiperSlide>
+              <Testimonials
+                name="Bùi Đức Việt"
+                desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
+                course="Khoá Ielts K14"
+                score="8.5"
+                image={Images.testimonial}
+              />
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <Testimonials
+                name="Bùi Đức Việt"
+                score="9.5"
+                image={Images.testimonial}
+                desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
+                course="Khoá Ielts K14"
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Testimonials
+                name="Bùi Đức Việt"
+                score="9.5"
+                image={Images.testimonial}
+                desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
+                course="Khoá Ielts K14"
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Testimonials
+                score="7.5"
+                image={Images.testimonial}
+                name="Bùi Đức Việt"
+                desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
+                course="Khoá Ielts K14"
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Testimonials
+                name="Bùi Đức Việt"
+                desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
+                course="Khoá Ielts K14"
+                image={Images.testimonial}
+                score="8.5"
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Testimonials
+                image={Images.testimonial}
+                name="Bùi Đức Việt"
+                score="8.5"
+                desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."
+                course="Khoá Ielts K14"
+              />
+            </SwiperSlide>
+          </Swiper>
+        </section>
+        <section className={styles.feedbackSec}>
+          <div className="container">
+            <h1>FEEDBACK HỌC VIÊN VÀ PHỤ HUYNH</h1>
+
+            <div className="row">
+              <Swiper
+                modules={[Navigation]}
+                slidesPerView={3}
+                spaceBetween={40}
+                navigation
+                pagination={{ clickable: true }}
+              >
+                <div className="col-md-4">
+                  <SwiperSlide>
+                    <FeedbackItem
+                      avt={Images.student}
+                      name="Đức Việt"
+                      comment="Trung tâm quá tuyệt vời!!!!"
+                    />
+                  </SwiperSlide>
+                </div>
+
+                <div className="col-md-4">
+                  <SwiperSlide>
+                    <FeedbackItem
+                      avt={Images.student}
+                      name="Việt Bùi"
+                      comment="Đáng để bỏ tiền ra học!!!!"
+                    />
+                  </SwiperSlide>
+                </div>
+                <div className="col-md-4">
+                  <SwiperSlide>
+                    <FeedbackItem
+                      avt={Images.student}
+                      name="Việt Bùi"
+                      comment="Đáng để bỏ tiền ra học!!!!"
+                    />
+                  </SwiperSlide>
+                </div>
+
+                <div className="col-md-4">
+                  <SwiperSlide>
+                    <FeedbackItem
+                      avt={Images.student}
+                      name="Việt"
+                      comment="Không có gì để chê!!!!"
+                    />
+                  </SwiperSlide>
+                </div>
+              </Swiper>
+            </div>
+          </div>
+        </section>
+        <section>
+          <ContactForm />
+        </section>
       </div>
     </DefaultLayout>
   );
