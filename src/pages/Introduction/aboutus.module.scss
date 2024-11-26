@@ -1,0 +1,159 @@
+$pd-inner: 129px;
+$w-container: calc(100vw - ((100vw - 150rem) / 2));
+
+.bannerWrapper {
+  margin-top: var(--size-hd);
+}
+.introWrapper {
+  .contentWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .inner {
+    .content {
+      h2 {
+        font-weight: 700;
+      }
+    }
+  }
+}
+.history {
+  background: #262626;
+  .inner {
+    position: relative;
+    .imgWrapper {
+      align-self: start;
+      justify-self: start;
+      transform: translateY(-10%);
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: cover; // Đảm bảo ảnh bao phủ toàn bộ khu vực cột bên trái
+      }
+    }
+    .contentWrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .content {
+      color: white;
+      padding-left: 2rem; // Thêm khoảng cách bên trái cho nội dung để không dính sát ảnh
+      padding-right: 2rem; // Để sát lề phải của container
+      word-wrap: break-word;
+    }
+  }
+}
+.historyCtn {
+  width: $w-container;
+}
+.teacherSection {
+  .contentWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  margin: calc(var(--section-gap) + 100px) 0;
+  .teacherWrapper {
+    .contentWrapper {
+      .content {
+        .contentTitle {
+          position: relative;
+          &:after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 0;
+            width: 10%;
+            height: 3px;
+            background: var(--bg-color);
+          }
+        }
+      }
+    }
+    .imgCol {
+      position: relative;
+      .imgWrapper {
+        img {
+          border-radius: 16px;
+        }
+
+        .Images1 {
+          position: absolute;
+          right: 0;
+          width: 371px;
+        }
+        .Images2 {
+          position: absolute;
+          top: -100px;
+          width: 371px;
+        }
+      }
+    }
+    .btn {
+      background: #fecd0e;
+    }
+  }
+}
+.numberWrapper {
+  .numberList {
+    border: 1px solid var(--linear--border);
+  }
+}
+.facilitiesWrapper {
+  display: flex;
+  flex-direction: column;
+  .imgWrapper {
+    img {
+      border-radius: 16px;
+    }
+  }
+  .topContent {
+    margin-bottom: 20px; /* Thêm khoảng cách dưới Swiper trên cùng */
+  }
+
+  .bottomContent {
+    margin-top: 20px; /* Thêm khoảng cách trên Swiper dưới */
+  }
+}
+.method {
+  .contentWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.vision {
+  position: relative;
+  &::after {
+    content: ''; /* Bắt buộc để pseudo-element hiển thị */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 53.33%; /* Chiều cao của layer là 1/3 chiều cao của .vision */
+    background: linear-gradient(
+      to bottom,
+      rgba(250, 25, 255, 0) 0%,
+      /* 0% -> trong suốt */ rgba(255, 255, 255, 0) 21%,
+      /* 21% -> trong suốt */ rgba(255, 255, 255, 0.7) 61%,
+      /* 61% -> mờ trắng */ rgba(255, 255, 255, 1) 100%
+        /* 100% -> trắng hoàn toàn */
+    );
+    z-index: 1; /* Đặt dưới button */
+    pointer-events: none; /* Không ảnh hưởng tới thao tác chuột */
+  }
+  .showMoreBtn {
+    position: absolute;
+    bottom: 10%; /* Căn giữa theo chiều dọc */
+    left: 50%; /* Căn giữa theo chiều ngang */
+    transform: translate(-50%, -50%); /* Căn chính xác vào giữa */
+    padding: 10px 20px;
+    background-color: #fecd0e;
+    border: none;
+    z-index: 2; /* Đảm bảo button nằm trên layer */
+    cursor: pointer;
+    border-radius: 72px;
+  }
+}

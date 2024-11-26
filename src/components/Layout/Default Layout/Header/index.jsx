@@ -14,10 +14,10 @@ const Header = () => {
       }
     };
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   return (
-    <header  className={`${styles.header} ${isScroll ? styles.scroll : ''}`}>
+    <header className={`${styles.header} ${isScroll ? styles.scroll : ''}`}>
       <div className={styles.topHeader}>
         <div className="container">
           <div className="row">
@@ -62,14 +62,19 @@ const Header = () => {
       </div>
       <div className={`container  ${styles.navBar}`}>
         <div className={styles.inner}>
-          <div className={styles.logo}>
-            <img src={Images.logo} alt="" />
-          </div>
+          <Link to="/">
+            <div className={styles.logo}>
+              <img src={Images.logo} alt="" />
+            </div>
+          </Link>
           <div className={styles.navLinks}>
+            <Link to="/aboutus" className={styles.navLink}>
+              Giới thiệu
+            </Link>
             <Link to="" className={styles.navLink}>
               Lịch khai giảng
             </Link>
-            <Link to="/" className={styles.navLink}>
+            <Link to="/lesson" className={styles.navLink}>
               Khoá học
             </Link>
             <Link to="" className={styles.navLink}>
@@ -83,7 +88,7 @@ const Header = () => {
             </Link>
           </div>
           <div className={styles.buttonWrapper}>
-            <Button className={styles.buttonCTA} title="Tư vấn" />
+            <Button className={styles.buttonCTA} title="Thi thử" />
           </div>
         </div>
       </div>

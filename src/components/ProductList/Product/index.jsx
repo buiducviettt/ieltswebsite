@@ -2,9 +2,9 @@
 import Button from '../../Button';
 import styles from '../../ProductList/product.module.scss';
 
-const ProductItem = ({ image, name, desc, enrollEnd }) => {
+const ProductItem = ({ image, name, desc, enrollEnd, onClick }) => {
   return (
-    <div className={styles.courseItem}>
+    <div className={styles.courseItem} onClick={onClick}>
       <div className={styles.courseImg}>
         <img src={image} alt="" />
       </div>

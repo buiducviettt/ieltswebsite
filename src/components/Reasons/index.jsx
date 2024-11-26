@@ -1,9 +1,9 @@
 import ReasonItem from './ReasonItem';
 import styles from '../Reasons/reason.module.scss';
 
-const ReasonList = () => {
+const ReasonList = ({ className }) => {
   return (
-    <div className={`${styles.listWrapper} mt-5`}>
+    <div className={`${styles.listWrapper} ${className} mt-5`}>
       <div className="container">
         <div className={`row`}>
           <div className="col-6 col-md-3">

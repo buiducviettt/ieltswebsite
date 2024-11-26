@@ -12,7 +12,7 @@ const Footer = () => {
       <div className={styles.logoWrapper}>
         <img src={Images.logo} alt="" />
       </div>
-      <div className="row">
+      <div className="row d-flex justify-content-between">
         <div className="col-md-3">
           <div className={`${styles.content} mt-5`}>
             <h2 style={{ color: '#F59E0B', fontSize: '2.4rem' }}>
@@ -27,7 +27,7 @@ const Footer = () => {
             </p>
           </div>
         </div>
-        <div className="col-md-3">
+        <div className="col col-md-3">
           <div className={`${styles.content} mt-5`}>
             <div className={styles.headings}>
               <h3>Thông tin</h3>
@@ -58,7 +58,7 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        <div className="col-md-3">
+        <div className="col col-md-3">
           <div className={`${styles.content} mt-5`}>
             <div className={styles.headings}>
               <h3>Ielts Tatics</h3>
@@ -79,7 +79,7 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        <div className="col-md-3">
+        <div className="col col-md-3">
           <div className={`${styles.content} mt-5`}>
             <div className={styles.headings}>
               <h3>Services</h3>

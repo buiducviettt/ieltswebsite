@@ -1,3 +1,4 @@
+$hd-margin: 16rem;
 .footer {
   border: 1px solid gray;
   .logoWrapper {
@@ -18,4 +19,7 @@
     font-size: 2rem;
     gap: 20px;
   }
+}
+.main {
+  margin-top: $hd-margin;
 }

@@ -85,15 +85,11 @@
   font-weight: 500;
   font-style: italic;
 }
-
-/* Add more variants as needed */
+@import '../GlobalStyles/custombootstrap.scss'; /* Add more variants as needed */
 img {
   width: 100%;
   height: auto;
   object-fit: cover;
-}
-.row {
-  --bs-gutter-x: 32px !important;
 }
 
 * {
@@ -103,19 +99,23 @@ img {
   max-width: 100%;
 }
 :root {
+  --linear--border: linear-gradient(to right, #ff930f66 40%, #ef760d66 40%);
   --button-color: #fecd0e;
   --bg-color: #ffca4c;
   --pd: 100px 100px;
   --color-text: #404040;
+  --color-text-fade: #737373;
   --spacing-small: 16px;
-  --spacing-medium: 32px;
+  --spacing-medium: 24px;
   --spacing-large: 48px;
   --font-size-base: clamp(1rem, calc(-1rem+5vw), 1.6rem);
   --font-size-heading: clamp(4rem, calc(-1rem + 5vw), 4rem); /* Đảm bảo 4rem */
   --font-size-heading2: clamp(3rem, calc(-1rem + 3vw), 3rem); /* Đảm bảo 3rem */
+  --size-hd: 160px;
+  --section-gap: 100px;
 }
 section {
-  margin-top: 100px;
+  margin-top: var(--section-gap);
 }
 a {
   text-decoration: none;
@@ -127,24 +127,24 @@ h1 {
   font-weight: bold;
   font-size: var(--font-size-heading);
 }
-
+h1 ~ p,
+h1 ~ div {
+  margin-top: 24px;
+}
 p {
   font-family: 'SVN-SofiaPro', sans-serif;
   font-weight: normal;
+  margin-bottom: 0px;
 }
-
 h2 {
   font-size: var(--font-size-heading2);
 }
-
 li {
   list-style: none;
 }
-
 html {
   font-size: 62.5%;
 }
-
 body {
   font-family: 'SVN-SofiaPro', sans-serif;
   line-height: 1.5;

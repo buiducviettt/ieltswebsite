@@ -1,0 +1,36 @@
+// src/styles/custom-bootstrap.scss
+
+// Import Bootstrap's functions and variables first
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+
+// Thiết lập các biến tùy chỉnh của hệ thống lưới
+$grid-breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1440px,
+  xxl: 1680px,
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1440px,
+  xxl: 1680px,
+);
+
+$grid-gutter-width: 32px;
+$grid-gutter-widths: (
+  sm: 24px,
+  md: 32px,
+  lg: 32px,
+  xl: 32px,
+  xxl: 24px,
+);
+
+$grid-columns: 12;
+
+// Import phần còn lại của Bootstrap
+@import 'bootstrap/scss/bootstrap';

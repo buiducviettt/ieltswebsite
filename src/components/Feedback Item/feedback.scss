@@ -1,0 +1,22 @@
+.fb_item__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  background: #fefce8;
+  padding: 24px;
+  .fb_item__quotes {
+    img {
+      width: 35px;
+    }
+  }
+  .fb_item__content {
+    gap: 35px;
+  }
+  .fb_item__user {
+    gap: 20px;
+    img {
+      width: 64px;
+      height: 64px;
+    }
+  }
+}
