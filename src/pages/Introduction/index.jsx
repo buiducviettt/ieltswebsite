@@ -7,6 +7,7 @@ import Partner from '../../components/Partner';
 import ReasonList from '../../components/Reasons';
 import Facilities from './Slider';
 import FeedbackItem from '../../components/Feedback Item';
+import CountUp from 'react-countup';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { Navigation } from 'swiper/modules';
@@ -18,7 +19,10 @@ const Introduction = () => {
       <section className={styles.introWrapper}>
         <div className="container">
           <div className="row d-flex justify-content-between">
-            <div className={`col-md-6 ${styles.contentWrapper}`}>
+            <div
+              className={`col-md-6 ${styles.contentWrapper}`}
+              data-aos="fade-right"
+            >
               <div className={styles.inner}>
                 <div className={styles.content}>
                   <h1>IELTS TACTICS</h1>
@@ -39,7 +43,7 @@ const Introduction = () => {
               </div>
             </div>
             <div className="col-12 col-md-5">
-              <div className={styles.teacherImg}>
+              <div className={styles.teacherImg} data-aos="flip-right">
                 <img src={Images.teacher1} alt="" />
               </div>
             </div>
@@ -51,11 +55,14 @@ const Introduction = () => {
           <div className={styles.inner}>
             <div className="row">
               <div className="col-md-6">
-                <div className={styles.imgWrapper}>
+                <div className={styles.imgWrapper} data-aos="flip-left">
                   <img src={Images.history} alt="" />
                 </div>
               </div>
-              <div className={`col-md-6 ${styles.contentWrapper}`}>
+              <div
+                className={`col-md-6 ${styles.contentWrapper}`}
+                data-aos="fade-right"
+              >
                 <div className={styles.content}>
                   <h1>LỊCH SỬ HÌNH THÀNH</h1>
                   <span className={styles.line}></span>
@@ -82,7 +89,7 @@ const Introduction = () => {
           <div className="container">
             <div className="row">
               <div className={`col-md-6 ${styles.imgCol}`}>
-                <div className={styles.imgWrapper}>
+                <div className={styles.imgWrapper} data-aos="flip-right">
                   <div className={styles.Images1}>
                     <img src={Images.teacher2} alt="" />
                   </div>
@@ -91,7 +98,10 @@ const Introduction = () => {
                   </div>
                 </div>
               </div>
-              <div className={`col-md-6 ${styles.contentWrapper}`}>
+              <div
+                className={`col-md-6 ${styles.contentWrapper}`}
+                data-aos="fade-left"
+              >
                 <div className={styles.content}>
                   <h1 className={styles.contentTitle}>ĐỘI NGŨ GIÁO VIÊN</h1>
                   <p>
@@ -136,11 +146,14 @@ const Introduction = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-6">
-              <div className={styles.imgWrapper}>
+              <div className={styles.imgWrapper} data-aos="flip-left">
                 <img src={Images.method} alt="" />
               </div>
             </div>
-            <div className={`col-md-6 ${styles.contentWrapper}`}>
+            <div
+              className={`col-md-6 ${styles.contentWrapper}`}
+              data-aos="fade-left"
+            >
               <div className={`${styles.content}`}>
                 <h1>
                   PHƯƠNG PHÁP{' '}
@@ -217,7 +230,7 @@ const Introduction = () => {
           </div>
         </div>
       </section>
-      <section className={styles.vision}>
+      <section className={styles.vision} data-aos="fade-in">
         <div className="container">
           <h1>TẦM NHÌN - SỨ MỆNH - GIÁ TRỊ CỐT LÕI</h1>
           <p>

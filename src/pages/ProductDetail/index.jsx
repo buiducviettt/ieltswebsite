@@ -13,12 +13,30 @@ import 'swiper/css';
 import { Navigation } from 'swiper/modules';
 import Images from '../../assets/image/Images';
 import FeedbackItem from '../../components/Feedback Item';
+import { useInView } from 'react-intersection-observer';
 import 'swiper/css/navigation';
 import ContactForm from '../../components/contactform';
+import { useContext } from 'react';
+import { CartContext } from '../../components/MiniCart/CartContext';
+import { Typewriter } from 'react-simple-typewriter';
 const ProductDetail = () => {
+  const { addToCart } = useContext(CartContext);
+  const { ref, inView } = useInView({
+    threshold: 0.5, // Kích hoạt khi 50% section xuất hiện
+    triggerOnce: true, // Chỉ kích hoạt một lần
+  });
   const { productId } = useParams();
   const [product, setProducts] = useState({});
+  const [noti, setNoti] = useState('');
+  const handleClick = () => {
+    addToCart(product);
+    setNoti('Sản phẩm đã được thêm vào giỏ hàng!'); // Hiển thị thông báo thành công
 
+    // Ẩn thông báo sau 3 giây
+    setTimeout(() => {
+      setNoti('');
+    }, 3000);
+  };
   useEffect(() => {
     const fetchURL = async () => {
       try {
@@ -148,7 +166,12 @@ const ProductDetail = () => {
                       </li>
                     </ul>
                   </div>
-                  <Button title="Mua Ngay" className={styles.btn} />
+                  <Button
+                    title="Mua Ngay"
+                    className={styles.btn}
+                    onClick={handleClick}
+                  />
+                  {noti && <div className="notification">{noti}</div>}
                 </div>
               </div>
             </div>
@@ -166,12 +189,23 @@ const ProductDetail = () => {
             </div>
           </div>
         </section>
-        <section className={styles.achieve}>
+        <section ref={ref} className={styles.achieve}>
           <div className="container">
             <div className={styles.inner}>
               <h1 className={styles.heading}>
                 BẠN ĐƯỢC GÌ{' '}
-                <span style={{ color: '#fecd0e' }}>SAU KHÓA HỌC!</span>
+                <span style={{ color: '#fecd0e' }}>
+                  {inView && (
+                    <Typewriter
+                      words={[' SAU KHÓA HỌC']}
+                      loop={2}
+                      typeSpeed={100}
+                      deleteSpeed={50}
+                      cursor
+                      cursorStyle="|"
+                    />
+                  )}
+                </span>
               </h1>
               <ul className={`mt-5 ${styles.achieveTable}`}>
                 <li className={styles.achieveList}>

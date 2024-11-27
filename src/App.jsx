@@ -2,19 +2,29 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { publicRoutes } from './routes';
 import Lenis from '@studio-freight/lenis';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 function App() {
   const lenis = new Lenis({
-    lerp: 0.1, // Tốc độ mượt mà của cuộn
-    smoothWheel: true, // Cho phép cuộn chuột mượt mà
-    smoothTouch: false, // Cho phép cuộn mượt mà trên cảm ứng
+    smooth: true,
   });
 
   function raf(time) {
     lenis.raf(time);
+    AOS.refresh(); // Đồng bộ AOS sau mỗi frame của Lenis
     requestAnimationFrame(raf);
   }
 
   requestAnimationFrame(raf);
+
+  lenis.on('scroll', AOS.refresh); // Refresh AOS khi Lenis xử lý scroll
+
+  // Khởi tạo AOS
+  AOS.init({
+    duration: 1000, // Thời gian hiệu ứng
+    once: true, // Hiệu ứng chỉ chạy 1 lần
+  });
   return (
     <Router>
       <div>

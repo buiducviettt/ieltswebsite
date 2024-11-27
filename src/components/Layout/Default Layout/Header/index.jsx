@@ -2,9 +2,17 @@ import styles from './Header.module.scss';
 import { Link } from 'react-router-dom';
 import Button from '../../../Button';
 import Images from '../../../../assets/image/Images';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
+import MiniCart from '../../../MiniCart';
+
 const Header = () => {
+  const [cartOpen, setCartOpen] = useState(false);
   const [isScroll, setIsScroll] = useState(false);
+  const handleOpenCart = () => {
+    setCartOpen(!cartOpen);
+  };
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -55,6 +63,10 @@ const Header = () => {
                     Đăng nhập
                   </div>{' '}
                 </Link>
+                <FontAwesomeIcon
+                  icon={faCartShopping}
+                  onClick={handleOpenCart}
+                />
               </div>
             </div>
           </div>
@@ -92,6 +104,7 @@ const Header = () => {
           </div>
         </div>
       </div>
+      {cartOpen && <MiniCart />}
     </header>
   );
 };

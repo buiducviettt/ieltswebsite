@@ -23,7 +23,7 @@ const StudentSec = () => {
         </div>
         <div className="col-12 col-md-6">
           <div className={styles.inner}>
-            <div className={styles.content}>
+            <div className={styles.content} data-aos="fade-left">
               <h1>
                 <span className={styles.number}>120.000+</span> HỌC VIÊN ĐỒNG
                 HÀNH

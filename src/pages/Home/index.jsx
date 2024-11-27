@@ -10,6 +10,7 @@ import Document from '../../components/Document';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import AOS from 'aos';
+import { useInView } from 'react-intersection-observer';
 import 'aos/dist/aos.css';
 import ReasonList from '../../components/Reasons';
 import StudentSec from './StudentSec';
@@ -17,28 +18,35 @@ import ContactForm from '../../components/contactform';
 import Partner from '../../components/Partner';
 import { Typewriter } from 'react-simple-typewriter';
 const Home = () => {
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  });
   useEffect(() => {
     AOS.init({
-      duration: 3000, // Thời gian chạy hiệu ứng (tính bằng ms)
-      once: true, // Hiệu ứng chỉ chạy một lần khi scroll
+      duration: 3000,
+      once: true,
     });
     AOS.refresh();
   }, []);
   return (
     <DefaultLayout>
       <HomeBanner />
-      <section>
+      <section ref={ref}>
         <div className={`${styles.aboutTeacher} container `} data-aos="fade-up">
           <div className={styles.inner}>
             <div className={styles.title}>
-              <span>
-                <CountUp
-                  end={100}
-                  duration={4}
-                  suffix="%"
-                  className={styles.yellow}
-                />
-              </span>
+              {inView && (
+                <span>
+                  <CountUp
+                    end={100}
+                    duration={4}
+                    suffix="%"
+                    className={styles.yellow}
+                  />
+                </span>
+              )}
+
               <h1>
                 GIÁO VIÊN ĐẠT{' '}
                 <span style={{ color: '#2563EB' }}> 8.0 - 8.5 IELTS</span>
