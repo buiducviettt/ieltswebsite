@@ -6,13 +6,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
 import MiniCart from '../../../MiniCart';
-
 const Header = () => {
   const [cartOpen, setCartOpen] = useState(false);
   const [isScroll, setIsScroll] = useState(false);
-  const handleOpenCart = () => {
-    setCartOpen(!cartOpen);
-  };
+  const handleOpenCart = () => setCartOpen(true);
+  const handleCloseCart = () => setCartOpen(false);
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -57,7 +56,7 @@ const Header = () => {
                 <Link to="/">Chính sách</Link>
                 <Link to="/"> Về chúng tôi</Link>
                 <Link to="/"> Liên hệ</Link>
-                <Link to="/">
+                <Link to="/login">
                   <div className={styles.topHeaderIcon}>
                     <img src={Images.account} alt="" />
                     Đăng nhập
@@ -104,7 +103,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      {cartOpen && <MiniCart />}
+      {cartOpen && <MiniCart isOpen={cartOpen} isClose={handleCloseCart} />}
     </header>
   );
 };

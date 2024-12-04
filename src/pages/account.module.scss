@@ -1,0 +1,41 @@
+.logInWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .fieldForm {
+    .inputGroup {
+      input {
+        font-size: 2rem;
+      }
+    }
+  }
+  .logInform {
+    .titleWrapper {
+      text-align: center;
+    }
+    min-width: 36rem;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    .title {
+      font-size: 4rem;
+    }
+    p {
+      font-size: 1.6rem;
+    }
+    .loginCtr {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .savePass {
+        display: flex;
+        gap: 10px;
+      }
+    }
+    .ctaBtn {
+      width: 100%;
+      background: var(--button-color);
+    }
+  }
+}

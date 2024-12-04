@@ -34,7 +34,17 @@ import student from '../image/aboutus/student.png';
 import vision from '../image/aboutus/vision.jpg';
 import cloud from '../image/Images/scoretesti.svg';
 import testimonial from '../image/Images/testimonials.png';
+import bidv from '../image/checkout/bidv.png';
+import momo from '../image/checkout/momo.png';
+import qr from '../image/checkout/qr.png';
+import vnpay from '../image/checkout/vnpay.png';
+import thankyou from '../image/checkout/thankyou.png';
 const Images = {
+  thankyou,
+  bidv,
+  momo,
+  qr,
+  vnpay,
   testimonial,
   cloud,
   vision,
