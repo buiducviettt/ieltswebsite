@@ -52,7 +52,7 @@ const Header = () => {
             </div>
             <div className="col col-md-6">
               <div className={styles.topHeaderRight}>
-                <Link to="/">Tin tức</Link>
+                <Link to="/new">Tin tức</Link>
                 <Link to="/">Chính sách</Link>
                 <Link to="/"> Về chúng tôi</Link>
                 <Link to="/"> Liên hệ</Link>

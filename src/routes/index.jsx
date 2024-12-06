@@ -5,8 +5,14 @@ import ProductDetail from '../pages/ProductDetail';
 import Checkout from '../pages/Checkout';
 import ThankYouPage from '../components/thankyou';
 import LogIn from '../pages/Login';
+import New from '../pages/news';
+import { components } from 'react-select';
 
 export const publicRoutes = [
+  {
+    path: '/new',
+    component: New,
+  },
   {
     path: '/login',
     component: LogIn,

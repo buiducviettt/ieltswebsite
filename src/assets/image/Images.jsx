@@ -39,7 +39,9 @@ import momo from '../image/checkout/momo.png';
 import qr from '../image/checkout/qr.png';
 import vnpay from '../image/checkout/vnpay.png';
 import thankyou from '../image/checkout/thankyou.png';
+import new1 from '../image/news/new1.png';
 const Images = {
+  new1,
   thankyou,
   bidv,
   momo,
