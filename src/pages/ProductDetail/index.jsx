@@ -22,7 +22,7 @@ import { Typewriter } from 'react-simple-typewriter';
 const ProductDetail = () => {
   const { addToCart } = useContext(CartContext);
   const { ref, inView } = useInView({
-    threshold: 0.5, // Kích hoạt khi 50% section xuất hiện
+    threshold: 0.5, // Kích hoạt khi 50% section xuất hiện` 1
     triggerOnce: true, // Chỉ kích hoạt một lần
   });
   const { productId } = useParams();
