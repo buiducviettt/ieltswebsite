@@ -6,12 +6,28 @@ import Checkout from '../pages/Checkout';
 import ThankYouPage from '../components/thankyou';
 import LogIn from '../pages/Login';
 import New from '../pages/news';
-import { components } from 'react-select';
+import newDetails from '../pages/news/detail';
+import UserInfo from '../pages/UserInfo';
+import FAQ from '../pages/FAQ';
+import Contact from '../pages/Contact';
 
 export const publicRoutes = [
+  { path: '/contact', component: Contact },
   {
-    path: '/new',
+    path: '/faq',
+    component: FAQ,
+  },
+  {
+    path: '/userinfo',
+    component: UserInfo,
+  },
+  {
+    path: '/news',
     component: New,
+  },
+  {
+    path: '/news/:newsId',
+    component: newDetails,
   },
   {
     path: '/login',

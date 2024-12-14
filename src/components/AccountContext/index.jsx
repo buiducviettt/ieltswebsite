@@ -1,17 +1,16 @@
-import React, { createContext, useState, useContext } from 'react';
-
+import { createContext, useState, useEffect } from 'react';
 export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);  // Lưu thông tin người dùng
+  const [user, setUser] = useState(null); // Lưu thông tin người dùng
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // API endpoint của bạn
   const API_URL = 'https://fakestoreapi.com';
 
+  // Hàm xử lý đăng nhập
   const login = async (username, password) => {
-    setLoading(true);  // Đánh dấu là đang tải
-    setError(null);    // Xóa lỗi trước khi gửi yêu cầu
+    setLoading(true);
+    setError(null);
 
     try {
       const response = await fetch(`${API_URL}/auth/login`, {
@@ -22,7 +21,6 @@ export const AuthProvider = ({ children }) => {
         body: JSON.stringify({ username, password }),
       });
 
-      // Kiểm tra xem server có phản hồi thành công không
       if (!response.ok) {
         throw new Error('Đăng nhập thất bại');
       }
@@ -31,26 +29,46 @@ export const AuthProvider = ({ children }) => {
       console.log('Kết quả trả về từ API:', data);
 
       if (data.token) {
-        // Lưu token vào localStorage
         localStorage.setItem('authToken', data.token);
-        setUser(data.user);  // Lưu thông tin người dùng
+
+        // Lấy thông tin người dùng chi tiết
+        const userResponse = await fetch(`${API_URL}/users/2`);
+        const userData = await userResponse.json();
+        setUser(userData);
+
+        localStorage.setItem('user', JSON.stringify(userData)); // Lưu user vào localStorage
         setLoading(false);
-        return true;  // Đăng nhập thành công
+        return true;
       } else {
         setLoading(false);
         setError('Thông tin đăng nhập không đúng');
-        return false;  // Đăng nhập không thành công
+        return false;
       }
     } catch (err) {
       setLoading(false);
       setError('Đã xảy ra lỗi khi đăng nhập');
-      console.error('Lỗi đăng nhập:', err);
-      return false;  // Đăng nhập thất bại
+      console.error(err);
+      return false;
     }
   };
 
+  // Hàm xử lý đăng xuất
+  const logout = () => {
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('user');
+    setUser(null);
+  };
+
+  // Lấy lại thông tin người dùng khi khởi động
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
+
   return (
-    <AuthContext.Provider value={{ user, login, loading, error }}>
+    <AuthContext.Provider value={{ user, login, logout, loading, error }}>
       {children}
     </AuthContext.Provider>
   );

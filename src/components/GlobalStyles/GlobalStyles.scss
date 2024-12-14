@@ -151,6 +151,7 @@ body {
   line-height: 1.5;
   font-size: 1.6rem;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 .react-select__input-container {
   width: 100px;
@@ -178,5 +179,30 @@ body {
   .swiper-slide:not(.swiper-slide-active) {
     transform: scale(0.9); // Thu nhỏ các slide không active
     z-index: 1;
+  }
+}
+@media (min-width: 992px) {
+  .mobileHeader {
+    display: none;
+  }
+}
+@media (max-width: 991.98px) {
+  .header {
+    display: none;
+  }
+
+  main {
+    margin-top: 0 !important;
+  }
+  section {
+    margin-top: var(--spacing-medium) !important;
+  }
+  .row {
+    --bs-gutter-x: 0 !important;
+  }
+
+  .col {
+    padding-left: 4px; /* Điều chỉnh padding các cột */
+    padding-right: 4px;
   }
 }

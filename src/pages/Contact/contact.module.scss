@@ -1,0 +1,35 @@
+.banner {
+  position: relative;
+  z-index: 1;
+  .bannerText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+.itemWrapper {
+  background: white;
+  min-width: 30rem;
+  min-height: 25rem;
+  border: 1px solid #ff930f;
+  border-radius: 17px;
+  padding: 24px 32px;
+  .inner {
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      .title {
+        font-size: 24px;
+      }
+    }
+    display: flex;
+    flex-direction: column;
+  }
+}
+.contentWrapper {
+  position: relative;
+  top: -60px;
+  z-index: 2;
+}

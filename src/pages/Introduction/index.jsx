@@ -7,12 +7,15 @@ import Partner from '../../components/Partner';
 import ReasonList from '../../components/Reasons';
 import Facilities from './Slider';
 import FeedbackItem from '../../components/Feedback Item';
-import CountUp from 'react-countup';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import { useMediaQuery } from 'react-responsive';
+import { Autoplay } from 'swiper/modules';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css/navigation';
+import 'swiper/css';
 const Introduction = () => {
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
   return (
     <DefaultLayout>
       <VideoBanner />
@@ -54,13 +57,13 @@ const Introduction = () => {
         <div className={styles.historyCtn}>
           <div className={styles.inner}>
             <div className="row">
-              <div className="col-md-6">
+              <div className="col-12 col-md-6 order-2 order-md-1 ">
                 <div className={styles.imgWrapper} data-aos="flip-left">
                   <img src={Images.history} alt="" />
                 </div>
               </div>
               <div
-                className={`col-md-6 ${styles.contentWrapper}`}
+                className={`col-12 col-md-6 ${styles.contentWrapper} order-1 order-md-2 `}
                 data-aos="fade-right"
               >
                 <div className={styles.content}>
@@ -88,18 +91,47 @@ const Introduction = () => {
         <div className={styles.teacherWrapper}>
           <div className="container">
             <div className="row">
-              <div className={`col-md-6 ${styles.imgCol}`}>
-                <div className={styles.imgWrapper} data-aos="flip-right">
-                  <div className={styles.Images1}>
-                    <img src={Images.teacher2} alt="" />
-                  </div>
-                  <div className={styles.Images2}>
-                    <img src={Images.teacher3} alt="" />
+              {isMobile ? (
+                <Swiper
+                  modules={[Autoplay]}
+                  freeMode={true}
+                  autoplay={{
+                    delay: 0,
+                    disableOnInteraction: false,
+                  }}
+                  speed={4000}
+                  loop={true}
+                  className="order-2 mt-5"
+                  slidesPerView={1}
+                  spaceBetween={40}
+                  pagination={{ clickable: true }}
+                >
+                  <SwiperSlide>
+                    <div className={styles.Images1}>
+                      <img src={Images.teacher2} alt="" />
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <div className={styles.Images2}>
+                      <img src={Images.teacher3} alt="" />
+                    </div>
+                  </SwiperSlide>
+                </Swiper>
+              ) : (
+                <div className={`col-3 col-md-6 ${styles.imgCol} `}>
+                  <div className={styles.imgWrapper} data-aos="flip-right">
+                    <div className={styles.Images1}>
+                      <img src={Images.teacher2} alt="" />
+                    </div>
+                    <div className={styles.Images2}>
+                      <img src={Images.teacher3} alt="" />
+                    </div>
                   </div>
                 </div>
-              </div>
+              )}
+
               <div
-                className={`col-md-6 ${styles.contentWrapper}`}
+                className={`col-3 col-md-6 ${styles.contentWrapper}`}
                 data-aos="fade-left"
               >
                 <div className={styles.content}>
@@ -125,7 +157,7 @@ const Introduction = () => {
           </div>
         </div>
       </section>
-      <section>
+      <section className={styles.facilitiesWrapper}>
         <Partner />
       </section>
       <section>
@@ -145,16 +177,16 @@ const Introduction = () => {
       <section className={styles.method}>
         <div className="container">
           <div className="row">
-            <div className="col-md-6">
+            <div className="col-md-6 order-2">
               <div className={styles.imgWrapper} data-aos="flip-left">
                 <img src={Images.method} alt="" />
               </div>
             </div>
             <div
-              className={`col-md-6 ${styles.contentWrapper}`}
+              className={`col-md-6 ${styles.contentWrapper1} order-1`}
               data-aos="fade-left"
             >
-              <div className={`${styles.content}`}>
+              <div className={`${styles.content} `}>
                 <h1>
                   PHƯƠNG PHÁP{' '}
                   <span style={{ color: ' #FECD0E' }}> ĐÀO TẠO ESA </span>
@@ -185,8 +217,25 @@ const Introduction = () => {
               modules={[Navigation]}
               slidesPerView={3}
               spaceBetween={40}
-              navigation
               pagination={{ clickable: true }}
+              breakpoints={{
+                0: {
+                  navigation: false,
+                  slidesPerView: 1, // Hiển thị 2 slide trên màn hình nhỏ
+                  spaceBetween: 20,
+                  // Khoảng cách giữa các slide trên mobile
+                },
+                768: {
+                  slidesPerView: 1, // Hiển thị 4 slide trên màn hình lớn hơn
+                  spaceBetween: 40,
+                  navigation: false, // Khoảng cách giữa các slide trên desktop
+                },
+                992: {
+                  slidesPerView: 4, // Hiển thị 4 slide trên màn hình lớn hơn
+                  spaceBetween: 40,
+                  navigation: true,
+                },
+              }}
             >
               <div className="col-md-4">
                 <SwiperSlide>

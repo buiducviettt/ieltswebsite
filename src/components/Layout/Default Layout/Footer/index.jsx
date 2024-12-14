@@ -27,7 +27,7 @@ const Footer = () => {
             </p>
           </div>
         </div>
-        <div className="col col-md-3">
+        <div className="col-6 col-md-3">
           <div className={`${styles.content} mt-5`}>
             <div className={styles.headings}>
               <h3>Thông tin</h3>

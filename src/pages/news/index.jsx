@@ -1,52 +1,48 @@
 import DefaultLayout from '../../components/Layout/Default Layout';
-import Item from './NewsItem';
 import styles from '../news/new.module.scss';
+import Item from './NewsItem';
 import Images from '../../assets/image/Images';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 const news = [
   {
     id: 1,
-    title: "News Title 1",
-    description: "Description for news item 1",
+    title: 'News Title 1',
+    description: 'Description for news item 1',
     image: Images.new1,
-    
   },
   {
     id: 2,
-    title: "News Title 2",
-    description: "Description for news item 2",
+    title: 'News Title 2',
+    description: 'Description for news item 2',
     image: Images.new1,
-   
   },
   {
     id: 3,
-    title: "News Title 2",
-    description: "Description for news item 2",
+    title: 'News Title 2',
+    description: 'Description for news item 2',
     image: Images.new1,
-  
-  },  {
+  },
+  {
     id: 4,
-    title: "News Title 2",
-    description: "Description for news item 2",
+    title: 'News Title 2',
+    description: 'Description for news item 2',
     image: Images.new1,
-  
   },
   {
     id: 5,
-    title: "News Title 2",
-    description: "Description for news item 2",
+    title: 'News Title 2',
+    description: 'Description for news item 2',
     image: Images.new1,
-   
   },
   // Thêm các phần tử news khác nếu cần
 ];
 const New = () => {
   const navigate = useNavigate();
-  const handleClick = (newsId) =>{
-    navigate ( `/news/${newsId}`)
-  }
-  
+  const handleClick = (newsId) => {
+    navigate(`/news/${newsId}`);
+  };
+
   return (
     <DefaultLayout>
       <div className={`${styles.lessonBanner}`}>
@@ -62,15 +58,19 @@ const New = () => {
       </div>
       <div className="container">
         <div className="row">
-        {news.map((item) => (
-  <div className="col-md-3" key={item.id}>
-    <div className="news-item" onClick={()=>handleClick (item.id)}>
-      <img src={item.image} alt="" />
-      <h3>{item.title}</h3>
-      <p>{item.description}</p>
-    </div>
-  </div>
-))}
+          {news.map((item) => (
+            <div className="col-md-3" key={item.id}>
+              <div
+                className="news-item"
+                onClick={() => handleClick(item.id)}
+                style={{ cursor: 'pointer' }}
+              >
+                <img src={item.image} alt="" />
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </DefaultLayout>

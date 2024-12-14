@@ -11,7 +11,6 @@ const Partner = () => {
     <div className={styles.partnerWrapper}>
       <div className={styles.inner}>
         <Swiper
-          slidesPerView={5}
           spaceBetween={20}
           modules={[Autoplay]}
           freeMode={true}
@@ -21,6 +20,23 @@ const Partner = () => {
           }}
           speed={4000}
           loop={true}
+          breakpoints={{
+            0: {
+              navigation: false,
+              slidesPerView: 2, // Hiển thị 2 slide trên màn hình nhỏ
+              spaceBetween: 20, // Khoảng cách giữa các slide trên mobile
+            },
+            768: {
+              slidesPerView: 2, // Hiển thị 4 slide trên màn hình lớn hơn
+              spaceBetween: 40,
+              navigation: false, // Khoảng cách giữa các slide trên desktop
+            },
+            992: {
+              slidesPerView: 5, // Hiển thị 4 slide trên màn hình lớn hơn
+              spaceBetween: 40,
+              navigation: true,
+            },
+          }}
         >
           <div className={styles.logoPartnerWrapper}>
             <SwiperSlide>

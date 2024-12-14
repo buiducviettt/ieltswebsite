@@ -1,0 +1,117 @@
+/* Mobile First i.e Smaller to Larger Devices */
+
+/* X-Small devices (portrait phones, less than 576px) */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .hamburgerMenu {
+    display: none;
+  }
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+}
+
+/* Desktop First i.e Larger to Smaller Devices */
+
+/* XX-Large devices (larger desktops) */
+/* No media query since the xxl breakpoint has no upper bound on its width */
+
+/* X-Large devices (large desktops, less than 1400px) */
+@media (max-width: 1399.98px) {
+}
+
+/* Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+}
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+  .row {
+    --bs-gutter-x: 0 !important;
+  }
+  section {
+    margin-top: var(--spacing-medium) !important;
+  }
+  .header {
+    display: none;
+  }
+  main {
+    margin-top: 0 !important;
+  }
+  .homeBanner {
+    .colLeftWrapper {
+      padding: 0;
+    }
+    .colRightWrapper {
+      margin-top: 40px;
+    }
+  }
+  // teacher
+  .aboutTeacher {
+    .title {
+      flex-direction: column;
+    }
+  }
+  //roadmap.
+  .roadMap {
+    .roadMapImageWrapper,
+    .certify {
+      margin-top: var(--spacing-large);
+    }
+  }
+  //course
+  .courseWrapper {
+    .inner {
+      .title {
+        flex-direction: column;
+        &::after {
+          top: 60%;
+          left: 25%;
+        }
+      }
+      .uniqueImg {
+        right: unset;
+        position: absolute;
+        left: 52%;
+        top: 20px;
+      }
+    }
+  }
+  //document
+  .documentsWrapper {
+    .inner {
+      .title {
+        .uniqueImg {
+          position: absolute;
+          top: 10px;
+          right: 20%;
+        }
+      }
+    }
+  }
+  .docWrapper {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+}
+
+/* X-Small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+}

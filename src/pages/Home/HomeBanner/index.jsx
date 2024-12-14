@@ -2,27 +2,35 @@ import Button from '../../../components/Button';
 import styles from '../../Home/home.module.scss';
 import Images from '../../../assets/image/Images';
 import { Typewriter } from 'react-simple-typewriter';
+import { useMediaQuery } from 'react-responsive';
 const HomeBanner = () => {
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
   return (
     <div className={`${styles.homeBanner}`}>
       <div className="container" style={{ padding: '50px  0' }}>
         <div className="row">
-          <div className="col-12 col-md-6">
+          <div className="col-12 col-md-12 col-lg-6">
             <div className={styles.colLeftWrapper}>
               <div className={styles.content}>
                 <div className={styles.textTitle}>
                   <h1 style={{ textTransform: 'uppercase' }}>
                     Chiến thuật <br />
-                    <span className={styles.isHighlight}>
-                      <Typewriter
-                        words={['Luyện thi IELTS']}
-                        loop={false}
-                        typeSpeed={50}
-                        deleteSpeed={30}
-                        cursor
-                        cursorStyle="|"
-                      />
-                    </span>{' '}
+                    {isMobile ? (
+                      <span className={styles.isHighlight}>
+                        Luyện thi IELTS
+                      </span>
+                    ) : (
+                      <span className={styles.isHighlight}>
+                        <Typewriter
+                          words={['Luyện thi IELTS']}
+                          loop={false}
+                          typeSpeed={50}
+                          deleteSpeed={30}
+                          cursor
+                          cursorStyle="|"
+                        />
+                      </span>
+                    )}
                     <br />
                     <p>Thông minh tại nhà</p>
                   </h1>

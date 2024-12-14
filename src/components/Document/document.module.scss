@@ -49,3 +49,4 @@ $linear-gradient: linear-gradient(
   gap: $pd;
   grid-template-columns: repeat(6, 1fr);
 }
+@import '../../pages/Home/responsive.module.scss';

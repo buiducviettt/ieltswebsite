@@ -40,7 +40,17 @@ import qr from '../image/checkout/qr.png';
 import vnpay from '../image/checkout/vnpay.png';
 import thankyou from '../image/checkout/thankyou.png';
 import new1 from '../image/news/new1.png';
+import contactBanner from '../image/contact/banner.png';
+import icon1 from '../image/contact/icon1.png';
+import icon2 from '../image/contact/icon2.png';
+import icon3 from '../image/contact/icon3.png';
+import icon4 from '../image/contact/icon4.png';
 const Images = {
+  icon1,
+  icon2,
+  icon3,
+  icon4,
+  contactBanner,
   new1,
   thankyou,
   bidv,

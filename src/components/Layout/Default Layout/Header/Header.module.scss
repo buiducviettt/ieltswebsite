@@ -1,4 +1,5 @@
 $hd-margin: 16rem;
+
 header {
   position: fixed;
   width: 100%;
@@ -15,13 +16,16 @@ header {
       padding: 5px 0;
     }
   }
+
   .topHeader {
     transition: padding 0.5s ease;
     padding: 15px 0;
     background: #000;
+
     a {
       font-size: 1.8rem;
     }
+
     .topHeaderLeft,
     .topHeaderRight {
       display: flex;
@@ -29,16 +33,19 @@ header {
       justify-content: space-evenly;
       color: white !important;
     }
+
     .topHeaderIcon {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
       img {
         width: 20px;
         height: 20px;
       }
-      display: flex;
-      align-items: center;
-      gap: 10px;
     }
   }
+
   .navBar {
     transition: padding 0.5s ease;
     padding: 24px 0;
@@ -49,6 +56,7 @@ header {
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
+
       .navLinks {
         .navLink {
           margin-left: 4rem;
@@ -56,14 +64,17 @@ header {
           color: #404040;
         }
       }
+
       .logo {
         img {
           object-fit: contain;
         }
       }
+
       .buttonCTA {
         background: var(--button-color);
         padding: 14px 50px;
+
         a {
           font-size: 1.8rem;
           font-weight: bold;
@@ -72,3 +83,54 @@ header {
     }
   }
 }
+
+.mobileHeader {
+  display: none;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: #fff;
+  z-index: 100000000;
+  padding: 10px 15px;
+
+  .mobileInner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .mobileLogo {
+      img {
+        height: 40px;
+        object-fit: contain;
+      }
+    }
+
+    .mobileIcons {
+      display: flex;
+      gap: 10px;
+
+      svg {
+        font-size: 20px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    display: none;
+  }
+
+  .mobileHeader {
+    display: flex;
+
+    &.scroll {
+      background: white;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+@import '../../../../pages/Home/responsive.module.scss';

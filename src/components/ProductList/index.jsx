@@ -6,8 +6,10 @@ import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive';
 
 function ProductList({ isHome }) {
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
 
@@ -37,8 +39,24 @@ function ProductList({ isHome }) {
           modules={[Navigation]}
           spaceBetween={40}
           slidesPerView={4}
-          navigation
           pagination={{ clickable: true }}
+          breakpoints={{
+            0: {
+              navigation: false,
+              slidesPerView: 2, // Hiển thị 2 slide trên màn hình nhỏ
+              spaceBetween: 20, // Khoảng cách giữa các slide trên mobile
+            },
+            768: {
+              slidesPerView: 2, // Hiển thị 4 slide trên màn hình lớn hơn
+              spaceBetween: 40,
+              navigation: false, // Khoảng cách giữa các slide trên desktop
+            },
+            992: {
+              slidesPerView: 4, // Hiển thị 4 slide trên màn hình lớn hơn
+              spaceBetween: 40,
+              navigation: true,
+            },
+          }}
         >
           {products.map((product) => (
             <SwiperSlide key={product.course_id}>

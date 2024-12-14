@@ -8,7 +8,7 @@ import CountUp from 'react-countup';
 import Button from '../../components/Button';
 import Document from '../../components/Document';
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import AOS from 'aos';
 import { useInView } from 'react-intersection-observer';
 import 'aos/dist/aos.css';
@@ -17,7 +17,10 @@ import StudentSec from './StudentSec';
 import ContactForm from '../../components/contactform';
 import Partner from '../../components/Partner';
 import { Typewriter } from 'react-simple-typewriter';
+import { useMediaQuery } from 'react-responsive';
+
 const Home = () => {
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
   const { ref, inView } = useInView({
     threshold: 0.5,
     triggerOnce: true,
@@ -162,16 +165,29 @@ const Home = () => {
             <div className={styles.title}>
               <h1 style={{ color: 'white', textAlign: 'center' }}>
                 ĐẶC QUYỀN CHỈ CÓ TẠI
-                <span style={{ color: '#FECD0E' }}>
-                  <Typewriter
-                    words={[' IELTS TACTICS']}
-                    loop={false}
-                    typeSpeed={50}
-                    deleteSpeed={30}
-                    cursor
-                    cursorStyle="|"
-                  />
-                </span>
+                {isMobile ? (
+                  <span style={{ color: '#FECD0E' }}>
+                    <Typewriter
+                      words={[' IELTS TACTICS']}
+                      loop={1}
+                      typeSpeed={50}
+                      deleteSpeed={30}
+                      cursor
+                      cursorStyle="|"
+                    />
+                  </span>
+                ) : (
+                  <span style={{ color: '#FECD0E' }}>
+                    <Typewriter
+                      words={[' IELTS TACTICS']}
+                      loop={false}
+                      typeSpeed={50}
+                      deleteSpeed={30}
+                      cursor
+                      cursorStyle="|"
+                    />
+                  </span>
+                )}
               </h1>
             </div>
             <ReasonList />

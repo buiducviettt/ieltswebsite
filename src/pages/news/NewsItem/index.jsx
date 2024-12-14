@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Item = ({ title, description, image, link }) => {
   return (
-    <div className={`${styles.newsItem}`}>
+    <div className={`${styles.newsItem}`} style={{ cursor: 'pointer' }}>
       <Link to={link}>
         <div className={styles.img}>
           <img src={image} alt={title} />

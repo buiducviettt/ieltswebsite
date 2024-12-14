@@ -72,7 +72,7 @@ const ContactForm = () => {
     <div className={styles.contactFormWrapper}>
       <div className="container">
         <div className="row">
-          <div className="col col-md-6">
+          <div className="col-12 col-md-6">
             <div className={styles.content}>
               <div className={styles.title}>
                 <h1>
