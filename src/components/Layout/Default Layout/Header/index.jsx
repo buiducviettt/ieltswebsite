@@ -1,13 +1,13 @@
 import styles from './Header.module.scss';
 import { Link } from 'react-router-dom';
 import Button from '../../../Button';
-import Hamburger from './Hamburger';
 import Images from '../../../../assets/image/Images';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState, useContext } from 'react';
 import MiniCart from '../../../MiniCart';
 import { AuthContext } from '../../../AccountContext';
+import MenuMobile from './MenuMobile';
 
 const Header = () => {
   const { user } = useContext(AuthContext);
@@ -123,23 +123,7 @@ const Header = () => {
       </div>
 
       {/* Mobile Header */}
-      <div
-        className={`${styles.mobileHeader} ${isScroll ? styles.scroll : ''}`}
-      >
-        <div className={styles.mobileInner}>
-          <Hamburger />
-          <Link to="/">
-            <img src={Images.logo} alt="Logo" className={styles.mobileLogo} />
-          </Link>
-          <div className={styles.mobileIcons}>
-            <FontAwesomeIcon icon={faSearch} />
-            <FontAwesomeIcon icon={faCartShopping} onClick={handleOpenCart} />
-            <Link to={user ? '/userinfo' : '/login'}>
-              <FontAwesomeIcon icon={faSearch} />
-            </Link>
-          </div>
-        </div>
-      </div>
+      <MenuMobile />
     </>
   );
 };
