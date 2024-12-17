@@ -1,0 +1,22 @@
+@media (max-width: 767.98px) {
+  .productDetail {
+    .productWrapper {
+      .productInner {
+        margin-top: var(--spacing-large);
+        display: flex;
+        flex-direction: column-reverse;
+        .productImg {
+          width: 100% !important;
+        }
+        h1 {
+          margin-top: var(--spacing-medium);
+          font-size: 3rem;
+        }
+      }
+      .ratingAndInfo {
+        flex-direction: column;
+        margin: var(--spacing-large) 0;
+      }
+    }
+  }
+}

@@ -23,3 +23,10 @@ $hd-margin: 16rem;
 .main {
   margin-top: $hd-margin;
 }
+@media (max-width: 720px) {
+  .footer {
+    .logoWrapper {
+      width: 100%;
+    }
+  }
+}

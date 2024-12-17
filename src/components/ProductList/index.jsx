@@ -77,7 +77,10 @@ function ProductList({ isHome }) {
         <div className={`${styles.productList} container`}>
           <div className={`row ${styles.rowCustom}`}>
             {products.map((product) => (
-              <div className="col col-md-3" key={product.id}>
+              <div
+                className="col-xs-6 col-sm-6 col-md-4 col-lg-3"
+                key={product.id}
+              >
                 <ProductItem
                   key={product.course_id}
                   onClick={() => handleProductClick(product.id)}

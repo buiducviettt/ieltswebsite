@@ -96,8 +96,8 @@ const MenuMobile = ({ className }) => {
             </Link>
           </li>
           <li>
-            <Link to="/shop" onClick={closeMenu}>
-              Shop
+            <Link to="/lesson" onClick={closeMenu}>
+              Khóa học
             </Link>
           </li>
           <li>

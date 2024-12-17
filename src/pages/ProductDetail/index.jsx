@@ -63,12 +63,14 @@ const ProductDetail = () => {
         <div className="container">
           <div className="row">
             <div className={`col col-md-8 ${styles.productWrapper}`}>
-              <div className={styles.productImg}>
-                {product.image && (
-                  <img src={product.image} alt={product.title} />
-                )}
+              <div className={styles.productInner}>
+                <div className={styles.productImg}>
+                  {product.image && (
+                    <img src={product.image} alt={product.title} />
+                  )}
+                </div>
+                <h1>{product.title}</h1>
               </div>
-              <h1>{product.title}</h1>
               <div
                 className={`${styles.ratingAndInfo} d-flex justify-content-between align-items-center`}
               >
@@ -198,7 +200,7 @@ const ProductDetail = () => {
                   {inView && (
                     <Typewriter
                       words={[' SAU KHÓA HỌC']}
-                      loop={2}
+                      loop={1}
                       typeSpeed={100}
                       deleteSpeed={50}
                       cursor
@@ -266,9 +268,25 @@ const ProductDetail = () => {
             navigation
             modules={[Navigation]}
             pagination={{ clickable: true }}
-            slidesPerView={5}
             spaceBetween={40} // Khoảng cách giữa các slide
             centeredSlides={true}
+            breakpoints={{
+              0: {
+                navigation: false,
+                slidesPerView: 1, // Hiển thị 2 slide trên màn hình nhỏ
+                spaceBetween: 20, // Khoảng cách giữa các slide trên mobile
+              },
+              768: {
+                slidesPerView: 2, // Hiển thị 4 slide trên màn hình lớn hơn
+                spaceBetween: 40,
+                navigation: false, // Khoảng cách giữa các slide trên desktop
+              },
+              992: {
+                slidesPerView: 5, // Hiển thị 4 slide trên màn hình lớn hơn
+                spaceBetween: 40,
+                navigation: true,
+              },
+            }}
           >
             <SwiperSlide>
               <Testimonials
@@ -334,10 +352,26 @@ const ProductDetail = () => {
             <div className="row">
               <Swiper
                 modules={[Navigation]}
-                slidesPerView={3}
                 spaceBetween={40}
                 navigation
                 pagination={{ clickable: true }}
+                breakpoints={{
+                  0: {
+                    navigation: false,
+                    slidesPerView: 1, // Hiển thị 2 slide trên màn hình nhỏ
+                    spaceBetween: 20, // Khoảng cách giữa các slide trên mobile
+                  },
+                  768: {
+                    slidesPerView: 2, // Hiển thị 4 slide trên màn hình lớn hơn
+                    spaceBetween: 40,
+                    navigation: false, // Khoảng cách giữa các slide trên desktop
+                  },
+                  992: {
+                    slidesPerView: 3, // Hiển thị 4 slide trên màn hình lớn hơn
+                    spaceBetween: 40,
+                    navigation: true,
+                  },
+                }}
               >
                 <div className="col-md-4">
                   <SwiperSlide>
