@@ -166,9 +166,13 @@ body {
       transition: opacity 0.3s ease;
     }
   }
+  .swiper-button-next,
+  .swiper-button-prev {
+    z-index: 10; /* Đảm bảo nút điều hướng luôn trên các phần tử khác */
+  }
 
   .swiper-slide-active {
-    z-index: 10;
+    z-index: 2;
 
     .description {
       opacity: 1;
@@ -187,6 +191,9 @@ body {
   }
 }
 @media (max-width: 991.98px) {
+  main {
+    margin-top: 50px !important;
+  }
   h1 {
     font-size: 3rem;
   }
@@ -194,16 +201,13 @@ body {
     display: none;
   }
 
-  main {
-    margin-top: 0 !important;
-  }
   section {
     margin-top: var(--spacing-medium) !important;
   }
   .row {
     --bs-gutter-x: 0 !important;
+    gap: 20px;
   }
-
   .col {
     padding-left: 4px; /* Điều chỉnh padding các cột */
     padding-right: 4px;

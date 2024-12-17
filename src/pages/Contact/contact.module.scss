@@ -1,4 +1,5 @@
 .banner {
+  width: 100%;
   position: relative;
   z-index: 1;
   .bannerText {
@@ -32,4 +33,14 @@
   position: relative;
   top: -60px;
   z-index: 2;
+}
+@media (max-width: 991.98px) {
+  .contentWrapper {
+    .imgWrapper {
+      img {
+        max-height: 200px;
+      }
+    }
+    margin-top: var(--size-hd);
+  }
 }

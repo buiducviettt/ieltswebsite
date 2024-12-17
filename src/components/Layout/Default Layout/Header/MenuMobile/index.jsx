@@ -10,6 +10,7 @@ import MiniCart from '../../../../MiniCart';
 
 const cx = classNames.bind(styles);
 
+// eslint-disable-next-line no-unused-vars, react/prop-types
 const MenuMobile = ({ className }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
@@ -17,7 +18,6 @@ const MenuMobile = ({ className }) => {
   const handleOpenCart = () => setCartOpen(true);
   const handleCloseCart = () => setCartOpen(false);
   let lastScrollY = window.scrollY;
-
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };

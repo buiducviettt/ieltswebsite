@@ -264,9 +264,9 @@ const ProductDetail = () => {
         <section className={`${styles.tesimonials} product_page_swiper`}>
           <h1 className={styles.heading}>BẢNG VÀNG THÀNH TÍCH</h1>
           <Swiper
+            modules={[Navigation]}
             loop={true}
             navigation
-            modules={[Navigation]}
             pagination={{ clickable: true }}
             spaceBetween={40} // Khoảng cách giữa các slide
             centeredSlides={true}
