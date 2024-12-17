@@ -43,6 +43,8 @@ h1 {
     }
     .ctaBtns {
       display: flex;
+      align-items: center;
+      gap: 20px;
       .ctaBtn1 {
         color: white;
         background: #dc2626;
