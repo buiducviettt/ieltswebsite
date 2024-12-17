@@ -14,22 +14,37 @@
   }
 }
 .courseItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
   cursor: pointer;
   border: 1px solid transparent;
   transition: all 0.3s ease;
-  // width: 248px;
-  height: auto;
+  min-height: 450px;
   img {
+    width: 100%;
     border-radius: 12px;
+    object-fit: cover;
+    height: 300px;
   }
-  .shortdesc {
-    color: #7c0fd2;
-    font-weight: 600 !important;
+  .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .shortdesc {
+      color: #7c0fd2;
+      font-weight: 600 !important;
+    }
+    .title {
+      font-size: 2rem;
+    }
   }
-  .title {
-    font-size: 2rem;
-  }
+
   .btn {
+    margin-top: auto;
     width: 100%;
     border: 1px solid black;
     border-radius: 10000px;
