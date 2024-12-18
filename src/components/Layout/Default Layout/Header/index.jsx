@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Button from '../../../Button';
 import Images from '../../../../assets/image/Images';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartShopping, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState, useContext } from 'react';
 import MiniCart from '../../../MiniCart';
 import { AuthContext } from '../../../AccountContext';

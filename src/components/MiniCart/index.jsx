@@ -1,13 +1,34 @@
 import styles from './minicart.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { CartContext } from './CartContext';
 import Button from '../Button';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+
 // eslint-disable-next-line react/prop-types
 const MiniCart = ({ isOpen, isClose }) => {
+  // MiniCart.js
+  useEffect(() => {
+    const bodyElement = document.body;
+    if (isOpen) {
+      // Khóa cuộn khi giỏ hàng mở
+      disableBodyScroll(bodyElement);
+    } else {
+      // Mở lại cuộn khi giỏ hàng đóng
+      enableBodyScroll(bodyElement);
+    }
+
+    return () => {
+      // Cleanup khi component bị unmount hoặc khi giỏ hàng đóng
+      enableBodyScroll(bodyElement);
+    };
+  }, [isOpen]);
+
   const { cartItems, removeCart, formatPrice } = useContext(CartContext);
+
   if (!isOpen) return null;
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.cartOverlay} onClick={isClose}></div>
@@ -20,7 +41,6 @@ const MiniCart = ({ isOpen, isClose }) => {
           <ul>
             {cartItems.length === 0 ? (
               <span style={{ fontSize: '2rem' }}>
-                {' '}
                 CHƯA CÓ SẢN PHẨM TRONG GIỎ
               </span>
             ) : (
@@ -50,7 +70,7 @@ const MiniCart = ({ isOpen, isClose }) => {
                   </span>
 
                   <Button
-                    title="Thanh toán "
+                    title="Thanh toán"
                     className={styles.cta}
                     to="/checkout"
                   />
@@ -63,4 +83,5 @@ const MiniCart = ({ isOpen, isClose }) => {
     </div>
   );
 };
+
 export default MiniCart;

@@ -132,6 +132,13 @@ h1 ~ p,
 h1 ~ div {
   margin-top: 24px;
 }
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* Ẩn thanh cuộn ngang */
+}
 p {
   font-family: 'SVN-SofiaPro', sans-serif;
   font-weight: normal;
@@ -151,8 +158,8 @@ body {
   line-height: 1.5;
   font-size: 1.6rem;
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
+
 .react-select__input-container {
   width: 100px;
 }

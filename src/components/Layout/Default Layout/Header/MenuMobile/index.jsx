@@ -7,24 +7,40 @@ import Images from '../../../../../assets/image/Images';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faSearch } from '@fortawesome/free-solid-svg-icons';
 import MiniCart from '../../../../MiniCart';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 const cx = classNames.bind(styles);
 
-// eslint-disable-next-line no-unused-vars, react/prop-types
-const MenuMobile = ({ className }) => {
+const MenuMobile = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
-  const handleOpenCart = () => setCartOpen(true);
-  const handleCloseCart = () => setCartOpen(false);
   let lastScrollY = window.scrollY;
+
+  // Toggle menu state
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  // Close menu and enable scroll
   const closeMenu = () => {
     setIsOpen(false);
   };
+
+  useEffect(() => {
+    // Lock or unlock body scroll when menu state changes
+    const targetElement = document.body; // Select the body to lock/unlock scrolling
+    if (isOpen) {
+      disableBodyScroll(targetElement);
+    } else {
+      enableBodyScroll(targetElement);
+    }
+
+    return () => {
+      enableBodyScroll(targetElement); // Clean up to ensure scrolling is always enabled
+    };
+  }, [isOpen]);
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > lastScrollY) {
@@ -37,13 +53,14 @@ const MenuMobile = ({ className }) => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
   return (
     <div
       className={cx('menu-mobile-container', 'menuMobile', {
         hidden: !isVisible,
       })}
     >
-      <div className={cx('menu-mobile-inner d-flex align-items-center gap-5 ')}>
+      <div className={cx('menu-mobile-inner d-flex align-items-center gap-5')}>
         {/* Hamburger Button */}
         <button className={cx('hamburger')} onClick={toggleMenu}>
           <span className={cx('bar')}></span>
@@ -53,22 +70,19 @@ const MenuMobile = ({ className }) => {
 
         {/* LOGO */}
         <Link to="/">
-          {' '}
           <img src={Images.logo} alt="" />
         </Link>
 
         <div
-          className={cx(
-            'mobile-icon', // lớp CSS chính của bạn
-            'd-flex', // lớp tiện ích từ Bootstrap
-            'align-items-center', // căn giữa theo chiều dọc
-            'gap-4', // căn đều các phần tử giữa,
-          )}
+          className={cx('mobile-icon', 'd-flex', 'align-items-center', 'gap-4')}
         >
           <div className={cx('hd-icon', 'cart-icon')}>
-            <FontAwesomeIcon icon={faCartShopping} onClick={handleOpenCart} />
+            <FontAwesomeIcon
+              icon={faCartShopping}
+              onClick={() => setCartOpen(true)}
+            />
             {cartOpen && (
-              <MiniCart isOpen={cartOpen} isClose={handleCloseCart} />
+              <MiniCart isOpen={cartOpen} isClose={() => setCartOpen(false)} />
             )}
           </div>
           <div className={cx('hd-icon', 'search-icon')}>
@@ -84,6 +98,7 @@ const MenuMobile = ({ className }) => {
           </div>
         </div>
       </div>
+
       {/* Overlay */}
       {isOpen && <div className={cx('overlay')} onClick={closeMenu}></div>}
 
