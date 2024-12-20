@@ -12,7 +12,12 @@
     opacity: 0;
     pointer-events: none;
   }
+  .menu-mobile-inner {
+    display: flex;
+    justify-content: space-evenly;
+  }
 }
+
 .hd-icon {
   font-size: 2rem;
 }

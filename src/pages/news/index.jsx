@@ -1,8 +1,7 @@
 import DefaultLayout from '../../components/Layout/Default Layout';
 import styles from '../news/new.module.scss';
-import Item from './NewsItem';
 import Images from '../../assets/image/Images';
-import { useState } from 'react';
+
 import { useNavigate } from 'react-router-dom';
 const news = [
   {

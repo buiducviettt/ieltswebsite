@@ -7,16 +7,40 @@ import Images from '../../../../../assets/image/Images';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faSearch } from '@fortawesome/free-solid-svg-icons';
 import MiniCart from '../../../../MiniCart';
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 const cx = classNames.bind(styles);
+// Hàm ngăn cuộn trang
+const preventScroll = (e) => {
+  e.preventDefault();
+};
+
+// Hàm khóa/unlock scroll
+const disableScrollEvents = () => {
+  window.addEventListener('scroll', preventScroll, { passive: false });
+  window.addEventListener('wheel', preventScroll, { passive: false });
+  window.addEventListener('touchmove', preventScroll, { passive: false });
+};
+
+const enableScrollEvents = () => {
+  window.removeEventListener('scroll', preventScroll);
+  window.removeEventListener('wheel', preventScroll);
+  window.removeEventListener('touchmove', preventScroll);
+};
 
 const MenuMobile = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
-  let lastScrollY = window.scrollY;
 
+  let lastScrollY = window.scrollY;
+  // Khi isOpen thay đổi, thêm/xóa sự kiện scroll
+  useEffect(() => {
+    if (isOpen || cartOpen) {
+      disableScrollEvents();
+    } else {
+      enableScrollEvents();
+    }
+  }, [isOpen, cartOpen]);
   // Toggle menu state
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -26,20 +50,6 @@ const MenuMobile = () => {
   const closeMenu = () => {
     setIsOpen(false);
   };
-
-  useEffect(() => {
-    // Lock or unlock body scroll when menu state changes
-    const targetElement = document.body; // Select the body to lock/unlock scrolling
-    if (isOpen) {
-      disableBodyScroll(targetElement);
-    } else {
-      enableBodyScroll(targetElement);
-    }
-
-    return () => {
-      enableBodyScroll(targetElement); // Clean up to ensure scrolling is always enabled
-    };
-  }, [isOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,7 +70,7 @@ const MenuMobile = () => {
         hidden: !isVisible,
       })}
     >
-      <div className={cx('menu-mobile-inner d-flex align-items-center gap-5')}>
+      <div className={cx('menu-mobile-inner')}>
         {/* Hamburger Button */}
         <button className={cx('hamburger')} onClick={toggleMenu}>
           <span className={cx('bar')}></span>

@@ -10,9 +10,10 @@ import newDetails from '../pages/news/detail';
 import UserInfo from '../pages/UserInfo';
 import FAQ from '../pages/FAQ';
 import Contact from '../pages/Contact';
-
+import Schedule from '../pages/Schedule';
 export const publicRoutes = [
   { path: '/contact', component: Contact },
+  { path: '/schedule', component: Schedule },
   {
     path: '/faq',
     component: FAQ,

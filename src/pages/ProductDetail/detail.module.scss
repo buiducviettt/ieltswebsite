@@ -33,6 +33,7 @@
     .ratingWrapper {
       display: flex;
       align-items: center;
+      flex-direction: row-reverse;
       gap: 20px;
       p {
         margin-bottom: 0;

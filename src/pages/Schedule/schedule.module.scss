@@ -1,0 +1,60 @@
+.schedule-filter-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; // Khoảng cách giữa các cột
+}
+.schedule-filter-item {
+  display: flex;
+  flex-direction: column;
+  flex: 1; // Đảm bảo mỗi cột giãn đều
+}
+
+.form-select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 2rem;
+}
+.schedule-filter-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--button-color);
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+}
+label {
+  font-size: 2rem;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 0.8rem;
+  border-style: hidden;
+  background: #fff;
+  -webkit-box-shadow: 0 0 0 0.1rem #f2f0ed;
+  box-shadow: 0 0 0 0.1rem #f2f0ed;
+  th {
+    background: var(--button-color);
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+  .title-table {
+    font-size: 2rem;
+  }
+  td {
+    text-align: center;
+    padding: 2rem 0;
+  }
+  tr {
+    border-bottom: 0.1rem solid #f2f0ed;
+    transition: background 0.3s;
+    &:hover {
+      background: #e2e2e0;
+    }
+  }
+}
+.schedule-result {
+  overflow-x: auto;
+}

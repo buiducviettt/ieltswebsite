@@ -17,8 +17,12 @@
     padding-top: 2rem;
   }
   .listOrders {
-    height: 70rem;
+    min-height: 70rem;
     overflow-y: auto;
+    @media (max-width: 768px) {
+      min-height: 45rem;
+      overflow-y: auto;
+    }
   }
   .inner {
     .cartItem {

@@ -99,7 +99,7 @@ const Header = () => {
                 <Link to="/aboutus" className={styles.navLink}>
                   Giới thiệu
                 </Link>
-                <Link to="" className={styles.navLink}>
+                <Link to="/schedule" className={styles.navLink}>
                   Lịch khai giảng
                 </Link>
                 <Link to="/lesson" className={styles.navLink}>

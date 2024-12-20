@@ -7,7 +7,7 @@ const StudentSec = () => {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-12 col-md-6">
+        <div className="col-6 col-md-6">
           <div className={styles.imgList}>
             <div className={styles.mansory}>
               {imgWrappers.map((index) => (
@@ -21,7 +21,7 @@ const StudentSec = () => {
             </div>
           </div>
         </div>
-        <div className="col-12 col-md-6">
+        <div className="col-6 col-md-6">
           <div className={styles.inner}>
             <div className={styles.content} data-aos="fade-left">
               <h1>
