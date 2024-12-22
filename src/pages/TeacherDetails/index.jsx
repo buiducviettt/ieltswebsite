@@ -4,6 +4,7 @@ import styles from './details.module.scss';
 import Images from '../../assets/image/Images';
 import classnames from 'classnames/bind';
 import { useParams } from 'react-router-dom';
+import Facilities from '../Introduction/Slider';
 const cx = classnames.bind(styles);
 const TeacherDetails = () => {
   const { teacherId } = useParams();
@@ -48,6 +49,20 @@ const TeacherDetails = () => {
         <div className={cx('teacherInfo', 'container')}>
           <div className={cx('teacherInfo_box')}>
             <div className={cx('teacherInfo_box_inner')}>
+              <p className={cx('teacherInfo_box_inner_title')}>
+                Tiểu sử giảng viên{' '}
+              </p>
+              <p className={cx('teacherInfo_box_inner_desc')}>
+                Hơn 3 năm kinh nghiệm giảng dạy tiếng Anh Sở hữu 2 chứng chỉ
+                TESOL: Giảng dạy giao tiếp và quản lý lớp Đạt Giải nhất Cuộc thi
+                tranh biện tiếng Anh AATW 2021 tại Học viện Tài chính Đạt Giải
+                nhì Nghiên cứu Khoa học, sử dụng ngôn ngữ Anh tại trường Đại học
+                Ngoại ngữ – Đại học Quốc gia Hà Nội
+              </p>
+            </div>
+          </div>{' '}
+          <div className={cx('teacherInfo_box')}>
+            <div className={cx('teacherInfo_box_inner')}>
               <p className={cx('teacherInfo_box_inner_title')}>Giới thiệu </p>
               <p className={cx('teacherInfo_box_inner_desc')}>
                 Giới thiệu Tôi là {teacher.name} - {teacher.title}, hiện tôi
@@ -60,7 +75,30 @@ const TeacherDetails = () => {
               </p>
             </div>
           </div>
+          <div className={cx('teacherInfo_box')}>
+            <div className={cx('teacherInfo_box_inner')}>
+              <p className={cx('teacherInfo_box_inner_title')}>
+                Mục tiêu nghề nghiệp
+              </p>
+              <p className={cx('teacherInfo_box_inner_desc')}>
+                Với sứ mệnh cung cấp những giá trị tốt nhất đến với khách hàng,
+                Quốc Khánh và PEP sẽ đem lại cho các em học sinh nguồn kiến
+                thức, tinh thần tự học và sự tự tin khi sử dụng tiếng Anh. Chúng
+                tôi sẽ đồng hành với hàng trăm các em nhỏ của Việt Nam để các em
+                sở hữu một nền tảng ngoại ngữ ổn định, bền vững và tự tin trong
+                việc sử dụng Tiếng Anh.
+              </p>
+            </div>
+          </div>{' '}
         </div>
+        <section className={cx('teacherImg_wrapper', 'mt-5')}>
+          <div className={cx('teacherImg_wrapper_inner')}>
+            <h1 className={cx('teacherImg_wrapper_inner_title', 'text-center')}>
+              Hình ảnh giáo viên với học viên
+            </h1>
+            <Facilities />
+          </div>
+        </section>
       </main>
     </DefaultLayout>
   );
