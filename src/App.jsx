@@ -8,6 +8,16 @@ import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   useEffect(() => {
+    // Chạy sau khi tất cả các component con đã render
+    const images = document.querySelectorAll('img');
+    images.forEach((img) => {
+      if (!img.hasAttribute('loading')) {
+        img.setAttribute('loading', 'lazy');
+      }
+    });
+  }, []); // Chạy chỉ một lần khi App component được mount
+
+  useEffect(() => {
     AOS.init({
       duration: 2000, // Thời gian hiệu ứng (ms)
       once: true, // Chỉ chạy một lần

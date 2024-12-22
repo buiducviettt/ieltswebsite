@@ -1,0 +1,43 @@
+.teacherInfo {
+  &_box {
+    margin: 0 auto;
+    position: relative; /* Để chứa pseudo-element */
+    background: #fefce8; /* Màu nền */
+    width: 90rem;
+    padding: 24px;
+    border-radius: 12px; /* Bo góc */
+    margin-bottom: 1rem;
+    z-index: 1;
+
+    /* Border gradient qua ::before */
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 12px; /* Khớp với border-radius của box */
+      padding: 1px; /* Độ dày border */
+      background: linear-gradient(
+        to right,
+        #ff930f,
+        #ef760d
+      ); /* Gradient màu */
+      -webkit-mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: exclude; /* Xóa phần nền bên trong */
+      -webkit-mask-composite: xor; /* Tương tự cho WebKit */
+      z-index: -1;
+    }
+
+    &_inner {
+      &_title {
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
