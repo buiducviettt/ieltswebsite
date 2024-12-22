@@ -59,7 +59,12 @@ const Header = () => {
                 <div className="col col-md-6">
                   <div className={styles.topHeaderRight}>
                     <Link to="/news">Tin tức</Link>
-                    <Link to="/">Chính sách</Link>
+                    <Link
+                      to="/"
+                      onClick={() => alert('Chức năng đang phát triển')}
+                    >
+                      Chính sách
+                    </Link>
                     <Link to="/aboutus"> Về chúng tôi</Link>
                     <Link to="/contact"> Liên hệ</Link>
                     {user ? (
@@ -105,10 +110,18 @@ const Header = () => {
                 <Link to="/lesson" className={styles.navLink}>
                   Khoá học
                 </Link>
-                <Link to="" className={styles.navLink}>
+                <Link
+                  to=""
+                  className={styles.navLink}
+                  onClick={() => alert('Chức năng đang phát triển')}
+                >
                   Tài liệu IELTS
                 </Link>
-                <Link to="" className={styles.navLink}>
+                <Link
+                  to=""
+                  className={styles.navLink}
+                  onClick={() => alert('Chức năng đang phát triển')}
+                >
                   Tự học IELTS
                 </Link>
               </div>
