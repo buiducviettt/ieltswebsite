@@ -17,13 +17,13 @@ const UserInfo = () => {
       <div className="d-flex justify-content-center align-items-center flex-column">
         <h1>Thông tin người dùng</h1>
         <p>
-          <strong>Email:</strong>
+          <strong>Email:</strong> : {user.email}
         </p>
         <p>
-          <strong>Tên:</strong>
+          <strong>Tên:</strong> : {user.name.firstname} {user.name.lastname}
         </p>
         <p>
-          <strong>Số điện thoại:</strong>
+          <strong>Số điện thoại:</strong>: : {user.phone}
         </p>
         <p></p>
         <Button title="Đăng xuất" onClick={logout} />

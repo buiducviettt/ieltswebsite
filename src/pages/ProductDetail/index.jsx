@@ -41,7 +41,7 @@ const ProductDetail = () => {
     const fetchURL = async () => {
       try {
         const response = await fetch(
-          `https://fakestoreapi.com/products/${productId}`,
+          `https://680f31ad67c5abddd19432d4.mockapi.io/elearn/courses/${productId}`,
         );
         if (!response.ok) {
           throw new Error('Failed to fetch product data');
@@ -69,7 +69,7 @@ const ProductDetail = () => {
                     <img src={product.image} alt={product.title} />
                   )}
                 </div>
-                <h1>{product.title}</h1>
+                <h1>{product.name}</h1>
               </div>
               <div
                 className={`${styles.ratingAndInfo} d-flex justify-content-between align-items-center`}
