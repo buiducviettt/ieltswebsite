@@ -50,7 +50,6 @@ const MiniCart = ({ isOpen, isClose }) => {
                   <span style={{ fontSize: '2rem' }}>
                     Tổng tiền: {formatPrice}VND
                   </span>
-
                   <Button
                     title="Thanh toán"
                     className={styles.cta}
