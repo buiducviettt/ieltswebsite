@@ -63,6 +63,7 @@ function ProductList({ isHome }) {
           {products.map((product) => (
             <SwiperSlide key={product.course_id}>
               <ProductItem
+                productId={product.id}
                 onClick={() => handleProductClick(product.id)}
                 image={product.image}
                 name={product.name}
@@ -87,6 +88,7 @@ function ProductList({ isHome }) {
                   key={product.course_id}
                   onClick={() => handleProductClick(product.id)}
                   image={product.image}
+                  productId={product.id}
                   name={product.name}
                   enrollEnd={
                     product.enrollment_end === null

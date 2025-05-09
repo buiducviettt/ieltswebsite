@@ -2,7 +2,6 @@ import { createContext, useState, useContext } from 'react';
 import { useEffect } from 'react';
 // Tạo CartContext
 export const CartContext = createContext();
-
 // CartProvider sẽ cung cấp context cho các component con
 // eslint-disable-next-line react/prop-types
 export const CartProvider = ({ children }) => {
@@ -10,13 +9,11 @@ export const CartProvider = ({ children }) => {
     const storedCart = localStorage.getItem('cartItems');
     return storedCart ? JSON.parse(storedCart) : [];
   }); // Giỏ hàng ban đầu
-
   // Thêm sản phẩm vào giỏ hàng (mỗi khóa học chỉ được có 1 trong giỏ hàng)
   const addToCart = (product) => {
     setCartItems((prevItems) => {
       // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
       const existingItem = prevItems.find((item) => item.id === product.id);
-
       if (existingItem) {
         // Nếu có rồi, không thay đổi giỏ hàng
         return prevItems;
@@ -52,6 +49,7 @@ export const CartProvider = ({ children }) => {
         cartItems,
         totalPrice,
         formatPrice,
+        setCartItems,
         addToCart,
         removeCart,
         totalItems,

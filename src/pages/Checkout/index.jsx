@@ -6,9 +6,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Images from '../../assets/image/Images';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
-
 import Button from '../../components/Button';
 const Checkout = () => {
+  const {
+    cartItems,
+    removeCart,
+    setCartItems,
+    totalItems,
+    totalPrice,
+    formatPrice,
+  } = useContext(CartContext);
   const navigate = useNavigate();
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
@@ -21,7 +28,14 @@ const Checkout = () => {
     voucher: '',
   });
   const handleClick = () => {
+    // lưu thông tin đơn hàng vào localStorage
     console.log('Thông tin khách hàng:', userData);
+    console.log('Các khóa học đã mua:', cartItems);
+    // ✅ Lưu đơn hàng vào localStorage để trang /thank-you dùng lại
+    localStorage.setItem('purchasedCourses', JSON.stringify(cartItems));
+    // xoá giỏ hàng sau khi thanh toán thành công
+    setCartItems([]);
+    localStorage.removeItem('cartItems');
     navigate('/thank-you');
   };
   const handleInputChange = (e) => {
@@ -31,9 +45,6 @@ const Checkout = () => {
       [name]: value || null,
     }));
   };
-
-  const { cartItems, removeCart, totalItems, totalPrice, formatPrice } =
-    useContext(CartContext);
 
   const discount = {
     discount: 10,

@@ -3,13 +3,13 @@ import Button from '../../components/Button';
 import styles from '../../pages/account.module.scss';
 import { useState, useContext } from 'react';
 import { AuthContext } from '../../components/AccountContext';
-
+import { useNavigate } from 'react-router-dom';
 const LogIn = () => {
   // Quản lý trạng thái email và password
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const { login, loading, error } = useContext(AuthContext); // Lấy hàm login và các thông tin từ context
-
+  const navigate = useNavigate();
   const handleLogin = async (e) => {
     e.preventDefault();
 
@@ -19,7 +19,8 @@ const LogIn = () => {
       // Nếu đăng nhập thành công, có thể điều hướng người dùng hoặc thông báo
       alert('Đăng nhập thành công!');
       // Có thể điều hướng người dùng tới trang khác
-      window.location.href = '/userinfo'; // Hoặc dùng react-router-dom để điều hướng
+      // Khi user được set xong => điều hướng
+      navigate('/userinfo'); // Hoặc dùng react-router-dom để điều hướng
     } else {
       // Nếu đăng nhập thất bại, hiển thị thông báo lỗi
       alert('Đăng nhập thất bại! ' + error);

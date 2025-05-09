@@ -32,11 +32,21 @@ export const AuthProvider = ({ children }) => {
         localStorage.setItem('authToken', data.token);
 
         // Lấy thông tin người dùng chi tiết
-        const userResponse = await fetch(`${API_URL}/users/2`);
-        const userData = await userResponse.json();
-        setUser(userData);
+        const userResponse = await fetch(`${API_URL}/users`);
+        const users = await userResponse.json();
+        // Tìm user theo username
+        const matchedUser = users.find(
+          (u) => u.username === username && u.password === password,
+        );
+        console.log('Thông tin người dùng:', matchedUser);
+        if (matchedUser) {
+          setUser(matchedUser);
+          localStorage.setItem('user', JSON.stringify(matchedUser));
+        } else {
+          setError('Không tìm thấy người dùng');
+          return false;
+        }
 
-        localStorage.setItem('user', JSON.stringify(userData)); // Lưu user vào localStorage
         setLoading(false);
         return true;
       } else {

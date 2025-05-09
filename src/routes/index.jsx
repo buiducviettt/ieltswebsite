@@ -12,6 +12,7 @@ import FAQ from '../pages/FAQ';
 import Contact from '../pages/Contact';
 import Schedule from '../pages/Schedule';
 import TeacherDetails from '../pages/TeacherDetails';
+import ProductItem from '../components/ProductList/Product';
 export const publicRoutes = [
   { path: '/contact', component: Contact },
   { path: '/schedule', component: Schedule },
@@ -55,6 +56,7 @@ export const publicRoutes = [
     path: '/product/:productId',
     component: ProductDetail,
   },
+
   {
     path: '/lesson',
     component: Lesson,
