@@ -12,13 +12,19 @@ import FAQ from '../pages/FAQ';
 import Contact from '../pages/Contact';
 import Schedule from '../pages/Schedule';
 import TeacherDetails from '../pages/TeacherDetails';
+import ViewLearn from '../pages/ViewLearn';
 import ProductItem from '../components/ProductList/Product';
+
 export const publicRoutes = [
   { path: '/contact', component: Contact },
   { path: '/schedule', component: Schedule },
   {
     path: '/teacher/:teacherId',
     component: TeacherDetails,
+  },
+  {
+    path: '/product/:productId/view',
+    component: ViewLearn,
   },
   {
     path: '/faq',

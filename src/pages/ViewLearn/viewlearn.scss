@@ -1,0 +1,12 @@
+.viewlearn_page {
+  .lessons_info {
+    .lesson_details {
+      &_content {
+        padding: 3.2rem;
+        border: 0.2rem solid #392d79;
+        border-radius: 1.6rem;
+        background-color: #f3c0d7;
+      }
+    }
+  }
+}

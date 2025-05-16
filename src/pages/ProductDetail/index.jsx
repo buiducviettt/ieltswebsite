@@ -30,7 +30,7 @@ const ProductDetail = () => {
   const handleLearn = () => {
     console.log('Chuyển hướng sang trang Khoá học');
     // Chuyển hướng sang trang khoá học
-    navigate(`/product/${productId}?view=learn`);
+    navigate(`/product/${productId}/view?view=learn`);
     // Thực hiện hành động khi đã mua khoá học
   };
   useEffect(() => {
@@ -80,7 +80,6 @@ const ProductDetail = () => {
   }, [productId]);
   const price = product.price * 24000; // Giá nhân với 24000
   const formattedPrice = price.toLocaleString('vi-VN');
-
   return (
     <DefaultLayout>
       {view === 'learn' && <h1>Hello</h1>}
