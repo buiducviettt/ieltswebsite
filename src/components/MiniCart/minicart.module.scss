@@ -17,11 +17,14 @@
     padding-top: 2rem;
   }
   .listOrders {
-    min-height: 70rem;
+    height: 70rem;
     overflow-y: auto;
     @media (max-width: 768px) {
-      min-height: 45rem;
+      height: 45rem;
       overflow-y: auto;
+    }
+    @media (min-width: 1200px) {
+      height: 50rem;
     }
   }
   .inner {

@@ -10,6 +10,7 @@ const ViewLearn = () => {
   const [lessons, setLessons] = useState([]);
   const [selectedChapter, setSelectedChapter] = useState(0);
   const [selectedVideo, setSelectedVideo] = useState(0);
+
   useEffect(() => {
     const fetchCourses = async () => {
       try {
@@ -72,7 +73,53 @@ const ViewLearn = () => {
                           </div>
                         </div>
                         <div className="col-md-4 lesson_toc">
-                          <h1>Hello</h1>
+                          <h1>Table of contents</h1>
+                          <div className="lesson_toc_list">
+                            {lessons?.course.map((chapter, index) => (
+                              <>
+                                <ul key={index}>
+                                  <h2>{chapter.title}</h2>
+                                  <li>
+                                    {chapter.videos.map((part, partIndex) => (
+                                      <div
+                                        key={partIndex}
+                                        className={`toc_item ${
+                                          selectedChapter?.title ===
+                                            chapter.title &&
+                                          selectedVideo?.title === part.title
+                                            ? 'active'
+                                            : ''
+                                        }`}
+                                        onClick={() => {
+                                          setSelectedChapter(chapter);
+                                          setSelectedVideo(part);
+                                        }}
+                                      >
+                                        {part.title}
+                                      </div>
+                                    ))}
+                                  </li>
+                                </ul>
+                              </>
+                            ))}
+                            <div className="test_chapter">
+                              <a
+                                href={`/product/${productId}/excercise`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text_link"
+                                style={{
+                                  textDecoration: 'underline',
+                                  alignItems: 'center',
+                                  display: 'flex',
+                                  justifyContent: 'center',
+                                  fontWeight: 'bold',
+                                }}
+                              >
+                                Test your knowledge
+                              </a>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>

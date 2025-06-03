@@ -6,16 +6,17 @@ import styles from '../../ProductList/product.module.scss';
 const ProductItem = ({ productId, image, name, desc, enrollEnd, onClick }) => {
   const [isPurchased, setIsPurchased] = useState(false);
   useEffect(() => {
-    const storedCourses = JSON.parse(localStorage.getItem('purchasedCourses'));
+    if (!productId) return;
+
+    const storedCourses =
+      JSON.parse(localStorage.getItem('purchasedCourses')) || [];
     const foundPurchased = storedCourses.find(
       (course) => course.id === productId,
     );
-    if (foundPurchased) {
-      setIsPurchased(true); // Đã mua khoá học
-    } else {
-      setIsPurchased(false); // Chưa mua khoá học
-    }
+
+    setIsPurchased(!!foundPurchased);
   }, [productId]);
+
   return (
     <div className={styles.courseItem} onClick={onClick}>
       <div className={styles.courseImg}>

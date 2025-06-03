@@ -34,7 +34,8 @@ const ProductDetail = () => {
     // Thực hiện hành động khi đã mua khoá học
   };
   useEffect(() => {
-    const storedCourses = JSON.parse(localStorage.getItem('purchasedCourses'));
+    const storedCourses =
+      JSON.parse(localStorage.getItem('purchasedCourses')) || [];
     const foundPurchased = storedCourses.find(
       (course) => course.id === productId,
     );

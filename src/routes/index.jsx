@@ -14,8 +14,13 @@ import Schedule from '../pages/Schedule';
 import TeacherDetails from '../pages/TeacherDetails';
 import ViewLearn from '../pages/ViewLearn';
 import ProductItem from '../components/ProductList/Product';
-
+import Excercise from '../pages/Excercise';
 export const publicRoutes = [
+  {
+    path: '/product/:productId/excercise',
+    component: Excercise,
+  },
+  {},
   { path: '/contact', component: Contact },
   { path: '/schedule', component: Schedule },
   {

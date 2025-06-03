@@ -9,4 +9,19 @@
       }
     }
   }
+  .lesson_toc {
+    &_list {
+      padding: 3.2rem;
+      border: 0.2rem solid #392d79;
+      border-radius: 1.6rem;
+      background-color: #f3c0d7;
+      .toc_item {
+        cursor: pointer;
+        &.active {
+          background-color: #392d79;
+          color: #fff;
+        }
+      }
+    }
+  }
 }

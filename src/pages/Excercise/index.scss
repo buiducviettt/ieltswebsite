@@ -1,0 +1,15 @@
+.exercise_content {
+  &_inside {
+    padding: 4rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+}
+.exercise_button {
+  display: flex;
+  gap: 2rem;
+}
+.exercise_btn {
+  background: var(--button-color);
+  padding: 14px 50px;
+}
