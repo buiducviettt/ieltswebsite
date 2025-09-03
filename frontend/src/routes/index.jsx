@@ -15,7 +15,9 @@ import TeacherDetails from '../pages/TeacherDetails';
 import ViewLearn from '../pages/ViewLearn';
 import ProductItem from '../components/ProductList/Product';
 import Excercise from '../pages/Excercise';
+import Register from '../pages/Register/register';
 export const publicRoutes = [
+  { path: '/register', component: Register },
   {
     path: '/product/:productId/excercise',
     component: Excercise,

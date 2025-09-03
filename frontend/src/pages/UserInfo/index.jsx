@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../components/AccountContext';
 
 import { useNavigate } from 'react-router-dom';
@@ -11,13 +11,13 @@ import Box from '@mui/material/Box';
 const UserInfo = () => {
   const [currentTab, setCurrentTab] = useState('mainInfo');
   const { user, logout } = useContext(AuthContext);
-  const [purchasedCourses, setPurchasedCourses] = useState([]);
-  useEffect(() => {
-    const storedCourses = localStorage.getItem('purchasedCourses');
-    if (storedCourses) {
-      setPurchasedCourses(JSON.parse(storedCourses));
-    }
-  }, []);
+  // const [purchasedCourses, setPurchasedCourses] = useState([]);
+  // useEffect(() => {
+  //   const storedCourses = localStorage.getItem('purchasedCourses');
+  //   if (storedCourses) {
+  //     setPurchasedCourses(JSON.parse(storedCourses));
+  //   }
+  // }, []);
   const navigate = useNavigate();
   if (!user) {
     navigate('/login'); // Chuyển hướng tới trang đăng nhập
@@ -60,7 +60,7 @@ const UserInfo = () => {
                       </p>
                     </div>
                   )}
-                  {currentTab === 'purchaseOrders' && (
+                  {/* {currentTab === 'purchaseOrders' && (
                     <div>
                       <h1>Khoá học đã mua</h1>
                       {purchasedCourses.map((course, index) => (
@@ -74,7 +74,7 @@ const UserInfo = () => {
                         </div>
                       ))}
                     </div>
-                  )}
+                  )} */}
                 </div>
               </Box>
             </div>

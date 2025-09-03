@@ -6,24 +6,16 @@ import { AuthContext } from '../../components/AccountContext';
 import { useNavigate } from 'react-router-dom';
 const LogIn = () => {
   // Quản lý trạng thái email và password
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { login, loading, error } = useContext(AuthContext); // Lấy hàm login và các thông tin từ context
+  const { login, loading, error, successMessage } = useContext(AuthContext); // Lấy hàm login và các thông tin từ context
   const navigate = useNavigate();
   const handleLogin = async (e) => {
     e.preventDefault();
-
     // Gọi hàm login từ context để thực hiện đăng nhập
-    const success = await login(username, password);
+    const success = await login(email, password);
     if (success) {
-      // Nếu đăng nhập thành công, có thể điều hướng người dùng hoặc thông báo
-      alert('Đăng nhập thành công!');
-      // Có thể điều hướng người dùng tới trang khác
-      // Khi user được set xong => điều hướng
-      navigate('/userinfo'); // Hoặc dùng react-router-dom để điều hướng
-    } else {
-      // Nếu đăng nhập thất bại, hiển thị thông báo lỗi
-      alert('Đăng nhập thất bại! ' + error);
+      navigate('/userinfo');
     }
   };
 
@@ -37,13 +29,13 @@ const LogIn = () => {
           </div>
           <div className={styles.fieldForm}>
             <div className={styles.inputGroup}>
-              <label htmlFor="username">Tên đăng nhập</label>
+              <label htmlFor="email">Tên đăng nhập</label>
               <input
                 type="text"
                 className="form-control"
-                id="username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)} // Cập nhật giá trị khi người dùng nhập
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)} // Cập nhật giá trị khi người dùng nhập
               />
             </div>
             <div className={styles.inputGroup}>
@@ -66,6 +58,16 @@ const LogIn = () => {
               <p style={{ color: '#6941C6' }}>Quên mật khẩu</p>
             </div>
           </div>
+          {/* chưa có tài khoản thì đăng kí */}
+          <div
+            className={`${styles.signupLink} d-flex align-items-center`}
+            style={{ gap: '1rem' }}
+          >
+            <p>Chưa có tài khoản?</p>
+            <a href="/register" style={{ color: '#6941C6' }}>
+              Đăng ký
+            </a>
+          </div>
           {/* Khi người dùng nhấn Đăng nhập, gọi handleLogin */}
           <Button
             title="Đăng nhập"
@@ -75,7 +77,8 @@ const LogIn = () => {
 
           {/* Hiển thị trạng thái loading nếu đang đăng nhập */}
           {loading && <p>Đang đăng nhập...</p>}
-          {error && <p style={{ color: 'red' }}>Lỗi: {error}</p>}
+          {error && <p style={{ color: 'red' }}>{error}</p>}
+          {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
         </div>
       </section>
     </DefaultLayout>

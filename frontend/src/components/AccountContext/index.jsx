@@ -1,16 +1,18 @@
+/* eslint-disable react/prop-types */
 import { createContext, useState, useEffect } from 'react';
 export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null); // Lưu thông tin người dùng
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-
-  const API_URL = 'https://fakestoreapi.com';
+  const [successMessage, setSuccessMessage] = useState(null);
+  const API_URL = 'http://localhost:3000';
 
   // Hàm xử lý đăng nhập
-  const login = async (username, password) => {
+  const login = async (email, password) => {
     setLoading(true);
     setError(null);
+    setSuccessMessage(null);
 
     try {
       const response = await fetch(`${API_URL}/auth/login`, {
@@ -18,52 +20,30 @@ export const AuthProvider = ({ children }) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ email, password }),
       });
-
       if (!response.ok) {
-        throw new Error('Đăng nhập thất bại');
+        throw new Error(data.message || 'Đăng nhập thất bại');
       }
-
       const data = await response.json();
       console.log('Kết quả trả về từ API:', data);
-
       if (data.token) {
         localStorage.setItem('authToken', data.token);
-
-        // Lấy thông tin người dùng chi tiết
-        const userResponse = await fetch(`${API_URL}/users`);
-        const users = await userResponse.json();
-        // Tìm user theo username
-        const matchedUser = users.find(
-          (u) => u.username === username && u.password === password,
-        );
-        console.log('Thông tin người dùng:', matchedUser);
-        if (matchedUser) {
-          setUser(matchedUser);
-          localStorage.setItem('user', JSON.stringify(matchedUser));
-        } else {
-          setError('Không tìm thấy người dùng');
-          return false;
-        }
-
-        setLoading(false);
+        setUser(data.user); // <-- lấy luôn từ login response
+        localStorage.setItem('user', JSON.stringify(data.user));
         return true;
-      } else {
-        setLoading(false);
-        setError('Thông tin đăng nhập không đúng');
-        return false;
       }
     } catch (err) {
       setLoading(false);
-      setError('Đã xảy ra lỗi khi đăng nhập');
-      console.error(err);
+      setError('Email hoặc mật khẩu không đúng');
+      console.error('Login error FE:', err.message);
       return false;
     }
   };
 
   // Hàm xử lý đăng xuất
   const logout = () => {
+    setLoading(false);
     localStorage.removeItem('authToken');
     localStorage.removeItem('user');
     setUser(null);
@@ -78,7 +58,9 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, loading, error }}>
+    <AuthContext.Provider
+      value={{ user, login, logout, loading, error, successMessage }}
+    >
       {children}
     </AuthContext.Provider>
   );
