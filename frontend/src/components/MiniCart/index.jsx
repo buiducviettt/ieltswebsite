@@ -10,7 +10,6 @@ const MiniCart = ({ isOpen, isClose }) => {
   const { cartItems, removeCart, formatPrice } = useContext(CartContext);
 
   if (!isOpen) return null;
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.cartOverlay} onClick={isClose}></div>
@@ -31,16 +30,19 @@ const MiniCart = ({ isOpen, isClose }) => {
                   {cartItems.map((item) => (
                     <li key={item.id} className={styles.cartItem}>
                       <div className={styles.img} style={{ width: '30%' }}>
-                        <img src={item.image} alt="" />
+                        <img src={item.product?.image} alt="" />
                       </div>
                       <div className={styles.info}>
-                        {item.title} - {item.quantity} x{' '}
-                        {`${(item.price * 24000).toLocaleString('vi-VN')}.`} VND
+                        {item.product?.name} - {item.quantity} x{' '}
+                        {`${(item.product?.price * 24000).toLocaleString(
+                          'vi-VN',
+                        )}.`}{' '}
+                        VND
                       </div>
                       <FontAwesomeIcon
                         icon={faX}
                         onClick={() => {
-                          removeCart(item.id);
+                          removeCart(item.productId);
                         }}
                       />
                     </li>

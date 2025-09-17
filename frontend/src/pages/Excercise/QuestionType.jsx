@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 // src/components/Exercise/QuestionType.jsx
 import { useState } from 'react';
 import './index.scss';

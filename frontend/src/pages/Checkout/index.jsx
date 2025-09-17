@@ -7,6 +7,7 @@ import Images from '../../assets/image/Images';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../components/Button';
+import axios from 'axios';
 const Checkout = () => {
   const {
     cartItems,
@@ -27,16 +28,34 @@ const Checkout = () => {
     email: '',
     voucher: '',
   });
-  const handleClick = () => {
-    // lưu thông tin đơn hàng vào localStorage
-    console.log('Thông tin khách hàng:', userData);
-    console.log('Các khóa học đã mua:', cartItems);
-    // ✅ Lưu đơn hàng vào localStorage để trang /thank-you dùng lại
-    localStorage.setItem('purchasedCourses', JSON.stringify(cartItems));
-    // xoá giỏ hàng sau khi thanh toán thành công
-    setCartItems([]);
-    localStorage.removeItem('cartItems');
-    navigate('/thank-you');
+  const isFormValid = userData.name && userData.phone && userData.email;
+
+  const handleClick = async () => {
+    if (!userData.name || !userData.phone || !userData.email) {
+      alert('Vui lòng điền đầy đủ thông tin!');
+      return;
+    }
+    try {
+      const token = localStorage.getItem('authToken');
+      const res = await axios.post(
+        'http://localhost:3000/checkout/confirm',
+        {
+          customer: userData,
+          items: cartItems.map((item) => ({
+            productId: item.product.id,
+            quantity: item.quantity,
+          })),
+        },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        },
+      );
+      console.log('Checkout thành công:', res.data);
+      setCartItems([]);
+      navigate('/thank-you');
+    } catch (error) {
+      console.log(error);
+    }
   };
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -69,13 +88,16 @@ const Checkout = () => {
             </div>
             <div className={styles.listOrders}>
               {cartItems.map((item) => (
-                <li key={item.id} className={styles.cartItem}>
+                <li key={item.productId} className={styles.cartItem}>
                   <div className={styles.img} style={{ width: '100px' }}>
-                    <img src={item.image} alt="" />
+                    <img src={item.product?.image} alt="" />
                   </div>
-                  <div className={styles.info}>{item.title}</div>
+                  <div className={styles.info}>{item.product?.name}</div>
                   <div className={styles.price}>
-                    {`${(item.price * 24000).toLocaleString('vi-VN')}.`} VND
+                    {`${(item.product?.price * 24000).toLocaleString(
+                      'vi-VN',
+                    )}.`}{' '}
+                    VND
                   </div>
                   <FontAwesomeIcon
                     icon={faX}
@@ -102,6 +124,7 @@ const Checkout = () => {
                         value={userData.name}
                         className="form-control"
                         placeholder="Điền họ tên"
+                        required
                       />
                     </div>
                     <div className={styles.inputGroup}>
@@ -112,6 +135,7 @@ const Checkout = () => {
                         value={userData.phone}
                         onChange={handleInputChange}
                         placeholder="Điền số điện thoại"
+                        required
                       />
                     </div>
                   </div>
@@ -123,6 +147,7 @@ const Checkout = () => {
                       value={userData.email}
                       onChange={handleInputChange}
                       placeholder="Điền email"
+                      required
                     />
                   </div>
                   <div className={styles.inputGroup}>
@@ -213,6 +238,7 @@ const Checkout = () => {
               title="Xác nhận đã thanh toán"
               className={styles.ctaBtnConfirm}
               onClick={handleClick}
+              disabled={!isFormValid}
             />
           </div>
         </div>

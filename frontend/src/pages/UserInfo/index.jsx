@@ -52,11 +52,10 @@ const UserInfo = () => {
                         <strong>Email:</strong> : {user?.email}
                       </p>
                       <p>
-                        <strong>Tên:</strong> : {user?.name?.firstname}{' '}
-                        {user?.name?.lastname}
+                        <strong>Tên:</strong> : {user?.name}{' '}
                       </p>
                       <p>
-                        <strong>Số điện thoại:</strong>: : {user?.phone}
+                        <strong>Username</strong>: {user?.username}
                       </p>
                     </div>
                   )}

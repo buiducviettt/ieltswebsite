@@ -20,6 +20,7 @@ import { useContext } from 'react';
 import { CartContext } from '../../components/MiniCart/CartContext';
 import { Typewriter } from 'react-simple-typewriter';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 const ProductDetail = () => {
   const navigate = useNavigate();
   const { productId } = useParams();
@@ -27,51 +28,55 @@ const ProductDetail = () => {
   const params = new URLSearchParams(search);
   const view = params.get('view');
   const [isPurchased, setIsPurchased] = useState(false);
+  const [product, setProducts] = useState({});
+  const [noti, setNoti] = useState('');
   const handleLearn = () => {
     console.log('Chuyển hướng sang trang Khoá học');
     // Chuyển hướng sang trang khoá học
     navigate(`/product/${productId}/view?view=learn`);
     // Thực hiện hành động khi đã mua khoá học
   };
+  // kiểm tra khóa học đã mua hay chưa thông qua get request
   useEffect(() => {
-    const storedCourses =
-      JSON.parse(localStorage.getItem('purchasedCourses')) || [];
-    const foundPurchased = storedCourses.find(
-      (course) => course.id === productId,
-    );
-    if (foundPurchased) {
-      setIsPurchased(true); // Đã mua khoá học
-    } else {
-      setIsPurchased(false); // Chưa mua khoá học
-    }
-  }, [productId]);
+    const fetchPurchased = async () => {
+      const token = localStorage.getItem('authToken');
+      if (!token || !product.id) return;
+      try {
+        const res = await axios.get(
+          'http://localhost:3000/checkout/purchased',
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          },
+        );
+        console.log('res.data', res.data);
+        const list = res.data || [];
+        const found = list.find((item) => item.productId === product.id);
+        console.log('found', found);
+        setIsPurchased(!!found);
+      } catch (error) {
+        console.error('Lỗi trong quá trình lấy sp đã mua', error);
+      }
+    };
+
+    fetchPurchased();
+  }, [product.id]);
   const { addToCart } = useContext(CartContext);
   const { ref, inView } = useInView({
     threshold: 0.5, // Kích hoạt khi 50% section xuất hiện` 1
     triggerOnce: true, // Chỉ kích hoạt một lần
   });
 
-  const [product, setProducts] = useState({});
-  const [noti, setNoti] = useState('');
-  const handleClick = () => {
-    addToCart(product);
-    setNoti('Sản phẩm đã được thêm vào giỏ hàng!'); // Hiển thị thông báo thành công
-
-    // Ẩn thông báo sau 3 giây
-    setTimeout(() => {
-      setNoti('');
-    }, 3000);
-  };
   useEffect(() => {
     const fetchURL = async () => {
       try {
         const response = await fetch(
-          `https://680f31ad67c5abddd19432d4.mockapi.io/elearn/courses/${productId}`,
+          `http://localhost:3000/products/${productId}`,
         );
         if (!response.ok) {
           throw new Error('Failed to fetch product data');
         }
         const data = await response.json();
+        console.log('data chi tiết product', data);
         setProducts(data);
       } catch (error) {
         console.error('Error fetching product:', error);
@@ -79,6 +84,44 @@ const ProductDetail = () => {
     };
     fetchURL();
   }, [productId]);
+  const handleClick = async () => {
+    const token = localStorage.getItem('authToken');
+    if (!token) {
+      setNoti(
+        'bạn chưa đăng nhập , Hệ thống tự chuyển trong 3s về trang đăng nhập ',
+      );
+      setTimeout(() => {
+        setNoti('');
+        navigate('/login');
+      }, 3000);
+
+      return;
+    }
+    try {
+      const res = await fetch(`http://localhost:3000/cart/add/${product.id}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`, // ✅ gửi token cho BE
+        },
+      });
+      const data = await res.json();
+      console.log('Cart updated:', data);
+      if (!res.ok) {
+        throw new Error('Không thể thêm vào giỏ hàng');
+      }
+      addToCart(product.id);
+      setNoti('Sản phẩm đã được thêm vào giỏ hàng!');
+      // Ẩn thông báo sau 3 giây
+      setTimeout(() => {
+        setNoti('');
+      }, 3000);
+    } catch (err) {
+      console.error('Lỗi:', err);
+      setNoti('Thêm vào giỏ hàng thất bại!');
+    }
+  };
+
   const price = product.price * 24000; // Giá nhân với 24000
   const formattedPrice = price.toLocaleString('vi-VN');
   return (
@@ -386,7 +429,6 @@ const ProductDetail = () => {
           <section className={styles.feedbackSec}>
             <div className="container">
               <h1>FEEDBACK HỌC VIÊN VÀ PHỤ HUYNH</h1>
-
               <div className="row">
                 <Swiper
                   modules={[Navigation]}

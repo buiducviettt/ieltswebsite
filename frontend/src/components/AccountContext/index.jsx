@@ -22,11 +22,13 @@ export const AuthProvider = ({ children }) => {
         },
         body: JSON.stringify({ email, password }),
       });
+      const data = await response.json();
+
+      console.log('Kết quả trả về từ API:', data);
       if (!response.ok) {
         throw new Error(data.message || 'Đăng nhập thất bại');
       }
-      const data = await response.json();
-      console.log('Kết quả trả về từ API:', data);
+
       if (data.token) {
         localStorage.setItem('authToken', data.token);
         setUser(data.user); // <-- lấy luôn từ login response

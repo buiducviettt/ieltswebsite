@@ -15,7 +15,9 @@ const LogIn = () => {
     // Gọi hàm login từ context để thực hiện đăng nhập
     const success = await login(email, password);
     if (success) {
-      navigate('/userinfo');
+      setTimeout(() => {
+        navigate('/userinfo');
+      }, 3000);
     }
   };
 

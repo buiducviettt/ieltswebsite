@@ -56,6 +56,17 @@ const Register = () => {
             onSubmit={handleSubmit}
           >
             <div className={styles.inputGroup}>
+              <label htmlFor="name">Name</label>
+              <input
+                required
+                type="text"
+                value={formData.name}
+                className="form-control"
+                id="name"
+                onChange={handleChange}
+              />
+            </div>
+            <div className={styles.inputGroup}>
               <label htmlFor="username">Username</label>
               <input
                 type="text"
@@ -87,17 +98,7 @@ const Register = () => {
                 onChange={handleChange}
               />
             </div>
-            <div className={styles.inputGroup}>
-              <label htmlFor="name">Name</label>
-              <input
-                required
-                type="text"
-                value={formData.name}
-                className="form-control"
-                id="name"
-                onChange={handleChange}
-              />
-            </div>
+
             <div className={styles.inputGroup}>
               <label htmlFor="confirmPassword">Confirm Password</label>
               <input
