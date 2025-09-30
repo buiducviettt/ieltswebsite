@@ -4,7 +4,7 @@ import Button from '../../Button';
 import styles from '../../ProductList/product.module.scss';
 import axios from 'axios';
 
-const ProductItem = ({ productId, image, name, desc, enrollEnd, onClick }) => {
+const ProductItem = ({ productId, image, name, enrollEnd, onClick }) => {
   const [isPurchased, setIsPurchased] = useState(false);
 
   useEffect(() => {
@@ -20,9 +20,6 @@ const ProductItem = ({ productId, image, name, desc, enrollEnd, onClick }) => {
         );
         // ✅ So sánh productId từ backend (string) với item.productId (string)
         const found = res.data.find((item) => item.productId === productId);
-        console.log('FE productId:', productId);
-        console.log('BE purchased list:', res.data);
-        console.log('FE found:', found);
         setIsPurchased(!!found);
       } catch (error) {
         console.error('Lỗi khi check purchased:', error);
@@ -39,11 +36,14 @@ const ProductItem = ({ productId, image, name, desc, enrollEnd, onClick }) => {
       <div className={`${styles.content} mt-5`}>
         <h1 className={styles.title}>{name}</h1>
         <p className={styles.shortdesc}>{enrollEnd}</p>
-        <p>{desc}</p>
         {isPurchased ? (
-          <Button title="Học ngay" className={styles.btn} />
+          <Button onClick={onClick} title="Học ngay" className={styles.btn} />
         ) : (
-          <Button title="Đăng ký học" className={styles.btn} />
+          <Button
+            onClick={onClick}
+            title="Đăng ký học"
+            className={styles.btn}
+          />
         )}
       </div>
     </div>

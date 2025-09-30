@@ -2,6 +2,7 @@ import DefaultLayout from '../../components/Layout/Default Layout';
 import styles from '../../pages/account.module.scss';
 import { useState } from 'react';
 import axios from 'axios';
+import Button from '../../components/Button';
 const Register = () => {
   const [formData, setFormData] = useState({
     username: '',
@@ -110,9 +111,11 @@ const Register = () => {
                 onChange={handleChange}
               />
             </div>
-            <button type="submit" className={styles.registerButton}>
-              Register
-            </button>
+            <Button
+              title={'Đăng ký'}
+              type={'submit'}
+              className={`${styles.registerButton} mt-5`}
+            ></Button>
           </form>
           {error && <p style={{ color: 'red' }}>{error}</p>}
           {success && <p style={{ color: 'green' }}>{success}</p>}

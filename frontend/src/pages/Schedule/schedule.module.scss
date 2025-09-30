@@ -58,3 +58,20 @@ table {
 .schedule-result {
   overflow-x: auto;
 }
+.popup-wrapper {
+  .popup-header {
+    h2 {
+      font-size: 3rem;
+    }
+  }
+  .form-register {
+    input {
+      font-size: 2rem;
+    }
+  }
+}
+.btn-contact {
+  border: 1px solid #fff;
+  background-color: transparent;
+  padding: 1rem;
+}

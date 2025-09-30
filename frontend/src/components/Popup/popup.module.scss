@@ -21,7 +21,7 @@
 }
 
 .popup-container {
-  background: #fff;
+  background: var(--button-color);
   border-radius: 8px;
   max-width: 500px;
   width: 90%;
@@ -41,27 +41,15 @@
 }
 
 .popup-header h2 {
-  font-size: 1.5rem;
+  font-size: 3rem;
   margin: 0;
 }
-
 .popup-close {
-  width: 30px;
-  background: none;
+  background-color: transparent;
   border: none;
-  font-size: 2rem;
+  font-size: 4rem;
   cursor: pointer;
-  color: #333;
   transition: color 0.3s;
-}
-
-.popup-close:hover {
-  color: #ff4d4f; /* Đổi màu khi hover */
-}
-
-.popup-content {
-  font-size: 1rem;
-  color: #555;
 }
 
 /* Hiệu ứng mở popup */

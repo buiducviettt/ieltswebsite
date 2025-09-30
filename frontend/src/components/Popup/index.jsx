@@ -9,7 +9,7 @@ const Popup = ({ title, content, isOpen, onClose }) => {
         <div className={cx('popup-container')}>
           <div className={cx('popup-header')}>
             <h2>{title}</h2>
-            <button className="popup-close" onClick={onClose}>
+            <button className={cx('popup-close')} onClick={onClose}>
               &times;
             </button>
           </div>

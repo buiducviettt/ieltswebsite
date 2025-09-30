@@ -33,7 +33,6 @@ function ProductList({ isHome }) {
     };
     fetchProduct();
   }, [isHome]);
-
   return (
     <div className={`${styles.productListWrapper} mt-5`}>
       {isHome ? (
@@ -71,7 +70,7 @@ function ProductList({ isHome }) {
                     ? `Hết hạn vào: ${product.enrollment_end}`
                     : ''
                 }
-                onClick={() => handleProductClick(product.id)}
+                onClick={() => handleProductClick(product)}
               />
             </SwiperSlide>
           ))}
@@ -89,9 +88,9 @@ function ProductList({ isHome }) {
                   image={product.image}
                   name={product.name}
                   enrollEnd={
-                    product.enrollment_end
-                      ? `Hết hạn vào: ${product.enrollment_end}`
-                      : ''
+                    product.enrollmentEnd
+                      ? `Hết hạn vào: ${product.enrollmentEnd}`
+                      : '  '
                   }
                   onClick={() => handleProductClick(product)}
                 />

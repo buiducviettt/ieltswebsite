@@ -1,55 +1,84 @@
-.mansory {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 10px;
+.galleryWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 600px; // theo design
+  aspect-ratio: 1 / 1; // giữ khung vuông
+  margin: auto;
+  /* QUAN TRỌNG: chặn tràn */
+}
+.item {
+  position: absolute;
+  border-radius: 12px;
+  overflow: hidden;
+
   img {
-    border-radius: 16px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 }
-/* Sử dụng nth-child để chỉnh sửa các hình ảnh */
-.mansory img:nth-child(1) {
-  grid-column: span 1; /* Tạo ảnh đầu tiên chiếm 2 cột */
-  grid-row: span 1; /* Tạo ảnh đầu tiên chiếm 2 hàng */
+/* Vị trí từng ảnh bằng % → tự co khi responsive */
+.item1 {
+  top: 5%;
+  left: 0%;
+  width: 45%;
+  height: 15%;
 }
 
-.mansory img:nth-child(2) {
-  grid-column: span 1;
-  grid-row: span 1;
+.item2 {
+  top: 0%;
+  left: 50%;
+  width: 35%;
+  height: 20%;
 }
 
-.mansory img:nth-child(3) {
-  grid-column: span 1;
-  grid-row: span 1;
+.item3 {
+  top: 22%;
+  left: 50%;
+  width: 25%;
+  height: 35%;
 }
 
-.mansory img:nth-child(4) {
-  grid-column: span 1;
-  grid-row: span 1;
+.item4 {
+  top: 22%;
+  left: 20%;
+  width: 25%;
+  height: 25%;
 }
 
-.mansory img:nth-child(5) {
-  grid-column: span 1;
-  grid-row: span 1;
+.item5 {
+  top: 60%;
+  left: 15%;
+  width: 30%;
+  height: 15%;
 }
 
-.mansory img:nth-child(6) {
-  grid-column: span 1;
-  grid-row: span 1;
+.item6 {
+  top: 60%;
+  left: 50%;
+  width: 25%;
+  height: 35%;
 }
 
-.mansory img:nth-child(7) {
-  grid-column: span 1;
-  grid-row: span 1;
+.item7 {
+  top: 60%;
+  left: 80%;
+  width: 30%;
+  height: 20%;
 }
 
-.mansory img:nth-child(8) {
-  grid-column: span 1;
-  grid-row: span 1;
+.item8 {
+  bottom: -10%;
+  left: 20%;
+  width: 25%;
+  height: 25%;
 }
-
-.mansory img:nth-child(9) {
-  grid-column: span 1;
-  grid-row: span 1;
+.item9 {
+  bottom: -10%;
+  left: 80%;
+  width: 25%;
+  height: 25%;
 }
 
 .inner {
@@ -64,5 +93,45 @@
   margin-top: 100px;
   .number {
     color: #dc2626;
+  }
+}
+.studentSec {
+  position: relative;
+}
+.circleDecor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none; // bám full trong StudentSec // để con dùng absolute nếu cần
+  > div {
+    position: absolute; // tất cả CircleDecor đều định vị tuyệt đối
+    &:nth-child(1) {
+      top: 0;
+      left: 20%;
+    }
+
+    &:nth-child(2) {
+      top: 20px;
+      right: 40px;
+    }
+
+    &:nth-child(3) {
+      top: 60px;
+      right: 100px;
+    }
+
+    &:nth-child(4) {
+      bottom: 100px;
+      left: 120px;
+    }
+
+    &:nth-child(5) {
+      top: 140px;
+      right: 70px;
+    }
+
+    &:nth-child(6) {
+      top: 180px;
+      left: 200px;
+    }
   }
 }

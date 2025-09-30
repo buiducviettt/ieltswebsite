@@ -8,16 +8,32 @@ import Button from '../../components/Button';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
+import { useEffect } from 'react';
+import axios from 'axios';
 const UserInfo = () => {
   const [currentTab, setCurrentTab] = useState('mainInfo');
   const { user, logout } = useContext(AuthContext);
-  // const [purchasedCourses, setPurchasedCourses] = useState([]);
-  // useEffect(() => {
-  //   const storedCourses = localStorage.getItem('purchasedCourses');
-  //   if (storedCourses) {
-  //     setPurchasedCourses(JSON.parse(storedCourses));
-  //   }
-  // }, []);
+  const [purchasedCourses, setPurchasedCourses] = useState([]);
+  useEffect(() => {
+    const fetchPurchased = async () => {
+      const token = localStorage.getItem('authToken');
+      if (!token) return;
+      try {
+        const res = await axios.get(
+          'http://localhost:3000/checkout/purchased',
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          },
+        );
+        const list = res.data || [];
+        console.log('list', list);
+        setPurchasedCourses(list);
+      } catch (err) {
+        console.error('Lỗi khi load giỏ hàng:', err);
+      }
+    };
+    fetchPurchased();
+  }, []);
   const navigate = useNavigate();
   if (!user) {
     navigate('/login'); // Chuyển hướng tới trang đăng nhập
@@ -59,21 +75,27 @@ const UserInfo = () => {
                       </p>
                     </div>
                   )}
-                  {/* {currentTab === 'purchaseOrders' && (
+                  {currentTab === 'purchaseOrders' && (
                     <div>
                       <h1>Khoá học đã mua</h1>
                       {purchasedCourses.map((course, index) => (
-                        <div key={index}>
-                          <h2>{course.name}</h2>
-                          <p>Giá: {course.price} VNĐ</p>
+                        <div key={index} className={styles.orderItem}>
+                          <div className={styles.orderItemTitle}>
+                            <img src={course.product.image} alt="" />
+                            <p>{course.product.name}</p>
+                            <p>Giá: {course.product.price * 24000}VNĐ </p>
+                          </div>
+
                           <Button
                             title="Học ngay"
-                            onClick={() => navigate(`/product/${course.id}`)}
+                            onClick={() =>
+                              navigate(`/product/${course.productId}`)
+                            }
                           />
                         </div>
                       ))}
                     </div>
-                  )} */}
+                  )}
                 </div>
               </Box>
             </div>

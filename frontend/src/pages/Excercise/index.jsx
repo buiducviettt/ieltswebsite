@@ -24,7 +24,7 @@ const Exercise = () => {
     const fetchExercise = async () => {
       try {
         const response = await fetch(
-          `https://680f31ad67c5abddd19432d4.mockapi.io/elearn/courses/${productId}`,
+          `http://localhost:3000/products/${productId}`,
         );
         const data = await response.json();
         const allExercises =
@@ -40,33 +40,32 @@ const Exercise = () => {
     };
     fetchExercise();
   }, [productId]);
-  // khởi tạo bộ đếm thời gian
-  // useEffect(() => {
-  //   if (!currentExercise) return;
-  //   const time = currentExercise.time || 500; // Giả sử thời gian được lưu trong currentExercise
-  //   setTimeLeft(time);
-  //   if (timeRef.current) {
-  //     clearInterval(timeRef.current);
-  //   }
-  //   timeRef.current = setInterval(() => {
-  //     setTimeLeft((prevTime) => {
-  //       if (prevTime <= 1) {
-  //         clearInterval(timeRef.current);
-  //         if (currentIndex < exercise.length - 1) {
-  //           setCurrentIndex((prevIndex) => prevIndex + 1);
-  //         }
+  useEffect(() => {
+    if (!currentExercise) return;
+    const time = currentExercise.time || 500; // Giả sử thời gian được lưu trong currentExercise
+    setTimeLeft(time);
+    if (timeRef.current) {
+      clearInterval(timeRef.current);
+    }
+    timeRef.current = setInterval(() => {
+      setTimeLeft((prevTime) => {
+        if (prevTime <= 1) {
+          clearInterval(timeRef.current);
+          if (currentIndex < exercise.length - 1) {
+            setCurrentIndex((prevIndex) => prevIndex + 1);
+          }
 
-  //         return 0;
-  //       }
-  //       return prevTime - 1;
-  //     });
-  //   }, 1000);
-  //   return () => {
-  //     if (timeRef.current) {
-  //       clearInterval(timeRef.current);
-  //     }
-  //   };
-  // }, [currentExercise]);
+          return 0;
+        }
+        return prevTime - 1;
+      });
+    }, 1000);
+    return () => {
+      if (timeRef.current) {
+        clearInterval(timeRef.current);
+      }
+    };
+  }, [currentExercise, currentIndex, exercise.length]);
   const formatTime = (seconds) => {
     const m = String(Math.floor(seconds / 60)).padStart(2, '0');
     const s = String(seconds % 60).padStart(2, '0');

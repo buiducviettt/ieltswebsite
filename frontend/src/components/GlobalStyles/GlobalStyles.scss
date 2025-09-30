@@ -159,7 +159,9 @@ body {
   font-size: 1.6rem;
   scroll-behavior: smooth;
 }
-
+.form-control {
+  font-size: 1.6rem;
+}
 .react-select__input-container {
   width: 100px;
 }
@@ -218,5 +220,21 @@ body {
   .col {
     padding-left: 4px; /* Điều chỉnh padding các cột */
     padding-right: 4px;
+  }
+}
+
+// keyframe
+.circle-size {
+  animation: circle 2s ease-in-out infinite;
+  @keyframes circle {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
   }
 }

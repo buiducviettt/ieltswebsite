@@ -39,3 +39,27 @@
     }
   }
 }
+.registerPage {
+  .registerButton {
+    background: var(--button-color);
+    padding: 14px 50px;
+    border: none;
+  }
+}
+.userTab {
+  .orderItem {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: var(--button-color);
+    .orderItemTitle {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      img {
+        width: 20%;
+      }
+    }
+  }
+}

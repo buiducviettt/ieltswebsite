@@ -15,10 +15,10 @@ const ViewLearn = () => {
     const fetchCourses = async () => {
       try {
         const response = await fetch(
-          `https://680f31ad67c5abddd19432d4.mockapi.io/elearn/courses/${productId}`,
+          `http://localhost:3000/products/${productId}`,
         );
         const data = await response.json();
-        console.log(data.course);
+        console.log(data.course.create);
         setLessons(data);
         // set mặc định cho chương đầu tiên và chapter đầu tiên
         const firstChapter = data.course?.[0];

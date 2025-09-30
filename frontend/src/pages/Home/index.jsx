@@ -34,7 +34,13 @@ const Home = () => {
   }, []);
   return (
     <DefaultLayout>
-      <HomeBanner />
+      <HomeBanner
+        onScrollHome={() =>
+          document.getElementById('contact-section').scrollIntoView({
+            behavior: 'smooth',
+          })
+        }
+      />
       <section ref={ref}>
         <div className={`${styles.aboutTeacher} container `} data-aos="fade-up">
           <div className={styles.inner}>
@@ -108,6 +114,11 @@ const Home = () => {
                       một cách khoa học nhất
                     </p>
                     <Button
+                      onClick={() =>
+                        document
+                          .getElementById('contact-section')
+                          .scrollIntoView({ behavior: 'smooth' })
+                      }
                       title="Liên hệ tư vấn ngay!"
                       className={styles.ctaBtn}
                     />
@@ -197,7 +208,7 @@ const Home = () => {
       <section>
         <StudentSec />
       </section>
-      <section>
+      <section id="contact-section" className={styles.contactFormSec}>
         <ContactForm />
       </section>
       <section>

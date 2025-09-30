@@ -3,7 +3,7 @@ import styles from '../../Home/home.module.scss';
 import Images from '../../../assets/image/Images';
 import { Typewriter } from 'react-simple-typewriter';
 import { useMediaQuery } from 'react-responsive';
-const HomeBanner = () => {
+const HomeBanner = ({ onScrollHome }) => {
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
   return (
     <div className={`${styles.homeBanner}`}>
@@ -44,6 +44,7 @@ const HomeBanner = () => {
                     <Button
                       title="Tư vấn lộ trình"
                       className={`${styles.ctaBtn1} btn btn-light`}
+                      onClick={onScrollHome}
                     />
                     <Button
                       title="Thi thử Ielts"
